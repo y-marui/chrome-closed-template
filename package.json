@@ -1,0 +1,10 @@
+{
+  "name": "chrome-extension-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "python3 build_extension_zip.py",
+    "test": "node test/unit/shared.test.js"
+  }
+}

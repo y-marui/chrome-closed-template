@@ -1,0 +1,3 @@
+export const MESSAGE_TYPES = {
+  EXAMPLE_ACTION: "EXAMPLE_ACTION"
+};
