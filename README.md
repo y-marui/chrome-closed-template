@@ -1,5 +1,8 @@
 # Chrome Extension Template
 
+> **This is the reference (English) version.**
+> For the canonical (Japanese) version, see [README-jp.md](README-jp.md).
+
 AI-friendly Chrome Extension template designed for:
 
 - Claude Code

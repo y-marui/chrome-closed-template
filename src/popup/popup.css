@@ -2,4 +2,21 @@ body {
   font-family: system-ui, sans-serif;
   padding: 12px;
   min-width: 200px;
+  background-color: #FFFFFF;
+  color: #4e454a;
+}
+
+h1, h2, h3, strong, b {
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #bab1b6;
+  }
+
+  h1, h2, h3, strong, b {
+    color: #FFFFFF;
+  }
 }

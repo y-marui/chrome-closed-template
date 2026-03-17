@@ -1,3 +1,5 @@
+> This is the reference (English) version.
+
 **Safe to edit freely:**
 - `src/popup/` — UI changes have no side effects on other components
 - `src/content/` — page interaction logic

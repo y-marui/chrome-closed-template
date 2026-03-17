@@ -1,3 +1,5 @@
+> This is the reference (English) version.
+
 Use least privilege.
 
 - Avoid `<all_urls>` unless required. The template uses `"https://*/*"` as a starting point — narrow it to the specific domains your extension targets.

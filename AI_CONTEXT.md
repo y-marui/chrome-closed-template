@@ -1,0 +1,176 @@
+# AI_CONTEXT.md
+
+> **このファイルはセッションをまたぐ AI コンテキストの主ファイルです。**
+> `docs/dev-charter/` の内容をこのプロジェクト向けにコンパイルしています。
+> 日常作業では dev-charter を直接参照せず、このファイルを使用してください。
+
+---
+
+## プロジェクト概要
+
+- **名前:** Chrome Extension Template
+- **種別:** クローズドプロジェクト
+- **規模:** 1〜3人
+- **目的:** AI-friendly Chrome 拡張機能テンプレート（Claude Code・GitHub Copilot 向け）
+
+---
+
+## ビルド・テストコマンド
+
+```sh
+npm test                    # ユニットテスト
+npm run build               # extension.zip を生成
+pre-commit run --all-files  # フック全実行
+```
+
+---
+
+## アーキテクチャ
+
+```
+src/
+  background/   ライフサイクルロジック（service-worker.js → bootstrap.js）
+  content/      ページ操作（ページに注入）
+  popup/        UI（ツールバーポップアップ）
+  shared/       再利用ロジック
+    messaging.js  Chrome API ラッパー（メッセージ送受信）
+    storage.js    Chrome API ラッパー（ローカルストレージ）
+    utils.js      純粋関数（Chrome API 非依存）
+```
+
+---
+
+## Chrome API ルール
+
+- `shared/storage.js` と `shared/messaging.js` のみが Chrome API を呼び出してよい
+- `src/background/service-worker.js` では `chrome.runtime.onInstalled` 等のライフサイクルイベントを直接呼び出してよい
+- popup・content スクリプトから Chrome API を直接呼ばない
+- `permissions` / `host_permissions` の追加前は `docs/permission-policy.md` を確認する
+
+---
+
+## コード設計原則
+
+- 変更範囲は必要最小限（over-engineering しない）
+- YAGNI：今必要ない機能は実装しない
+- DRY 違反の判断：2回の重複では抽象化しない、3回目で検討
+- 既存コードの再利用：新規実装前に類似機能がないか確認
+- 既存コードのパターンに従う（命名規則・アーキテクチャ・ディレクトリ構造）
+- TODO/FIXME を残さない：実装するか issue として記録する
+- 不要な依存追加禁止：既存の依存で解決できないか先に検討する
+- 大きな変更前に方針を説明してから着手する
+- コメントは「なぜそうするか」のみ書く。コードから自明な処理には書かない
+- デバッグ用 `console.log` は本番コードに残さない
+
+---
+
+## AI 協働ルール
+
+### AI 行動原則
+- **Scope（スコープ厳守）**: 会話の主題・タスク・ゴールを AI が勝手に変更しない
+- **Uncertainty（不明点の扱い）**: 重要な情報不足は質問する。軽微な不足は合理的な仮定で補い、仮定を明示する。推測で断定しない
+
+### コーディング前の確認
+不明・未定の項目があれば**作業前に 1 回でまとめて**質問する。
+
+**確認必須:** ゴール（完了条件）/ 言語・FW・バージョン制約 / 新規 or 既存コード修正 / テストの要否 / 影響範囲
+
+**確認不要（既存コードに合わせて進める）:** コードスタイル / ファイル配置 / 軽微な実装詳細
+
+### エラー・デバッグ対応
+- エラー発生時は **原因分析 → 修正方針説明 → 実装** の順で進める
+- エラーログ・スタックトレースは必ず全文確認してから対応
+- 推測で修正しない（必要なら既存コードを確認）
+
+### AI ツールの役割分担
+
+| ツール | 担当 |
+|--------|------|
+| **Claude Code** | プロジェクト立ち上げ・大規模変更・アーキテクチャ設計 |
+| **GitHub Copilot** | バグ修正・細かな実装補助・単体テスト作成 |
+| **Gemini CLI** | プライバシーポリシー・ストア説明文・審査ドキュメント管理 |
+
+### AI 並用時のルール
+- Claude Code 作業中は Copilot 提案を**参考程度**に（盲目的に受け入れない）
+- Copilot の提案がプロジェクト規約に反する場合は無視し、Claude Code でレビュー後に採用
+
+---
+
+## Git 運用
+
+- Conventional Commits 形式（`feat` / `fix` / `refactor` / `docs` / `chore`）
+- 動作しないコードはコミットしない（WIP 禁止）
+- コミット粒度：機能単位・動作確認 OK 後
+
+---
+
+## セキュリティルール
+
+- API キー・パスワード・トークンをコードに書かない
+- `.env` ファイルはコミットしない（`.env.example` のみ可）
+- シークレットを含むファイル・コード・スクリーンショットを AI に渡さない
+- AI が生成したコードは必ずレビューしてからコミットする（SQLインジェクション・ハードコード認証情報等に注意）
+- AI との会話ログをリポジトリにコミットしない
+- 誤ってコミットしたシークレットは、履歴から削除した上で即座にローテーションする
+- no remote code execution・inline scripts 禁止
+
+---
+
+## UI ガイドライン
+
+- ライト・ダーク・システムの各モードに対応する
+- カラーパレット:
+  - ライト: 背景 `#FFFFFF`、文字 `#4e454a`、強調 `#000000`
+  - ダーク: 背景 `#000000`、文字 `#bab1b6`、強調 `#FFFFFF`
+- Unicode 絵文字禁止（UI パーツ）
+- アイコン: **Google Material Symbols** を第一選択。ブランドロゴは **Font Awesome Brands**
+
+---
+
+## 言語ポリシー
+
+- クローズドプロジェクト → **日本語が正本**
+- `README.md` は英語（国際参照用）、`README-jp.md` が日本語正本
+- ドキュメントを編集する際は日本語版を主として編集し、英語版をそれに合わせて更新する
+
+---
+
+## ローカライゼーション
+
+サポート言語: システム設定 / 日本語 / 英語 / 中国語 / ヒンディー語 / スペイン語 / フランス語 / ポルトガル語
+
+言語決定優先順位: ユーザー設定 → システム言語 → 英語
+
+---
+
+## マネタイズ
+
+Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システムは禁止。
+
+**標準文言:**
+> 役に立ったらサポートしてもらえると嬉しいです ☕
+> （`☕` は非ユニコード絵文字 / Material Symbols に差し替えること）
+
+**標準ボタン（サイズ変更禁止）:**
+```html
+<a href="https://www.buymeacoffee.com/y.marui" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+       alt="Buy Me A Coffee"
+       style="height: 60px !important;width: 217px !important;">
+</a>
+```
+
+**本格的なマネタイズを検討する場合:**
+1. リポジトリに `MONETIZATION.md` を作成（対象プラットフォーム・収益モデル・価格設定・実施時期を記載）
+2. この `AI_CONTEXT.md` のマネタイズセクションに概要を追記し、詳細は `MONETIZATION.md` を参照する旨を記載
+
+---
+
+## 参照ドキュメント
+
+- [アーキテクチャ](docs/architecture.md)
+- [AI ガイドライン](docs/ai-guidelines.md)
+- [パーミッションポリシー](docs/permission-policy.md)
+- [セキュリティチェックリスト](docs/security-checklist.md)
+- [メンテナンスガイド](docs/maintenance-guide.md)
+- [開発憲章](docs/dev-charter/README.md)

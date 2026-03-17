@@ -1,3 +1,5 @@
+> This is the reference (English) version.
+
 AI rules
 
 - Only `shared/storage.js` and `shared/messaging.js` may call Chrome APIs. All other shared modules must remain Chrome API free.

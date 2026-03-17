@@ -6,7 +6,6 @@ function assertEqual(a,b){
   }
 }
 
-// exampleUtil
 assertEqual(exampleUtil(" hello "), "hello")
 assertEqual(exampleUtil("no spaces"), "no spaces")
 assertEqual(exampleUtil(""), "")
