@@ -3,8 +3,9 @@
 > **This is the reference (English) version.**
 > The canonical (Japanese) version is [README-jp.md](README-jp.md).
 
-[![CI](https://github.com/y-marui/chrome-extension-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/chrome-extension-template/actions/workflows/ci.yml)
-[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
+[![CI](https://github.com/y-marui/chrome-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/chrome-closed-template/actions/workflows/ci.yml)
+[![Charter Check](https://github.com/y-marui/chrome-closed-template/actions/workflows/dev-charter-check.yml/badge.svg)](https://github.com/y-marui/chrome-closed-template/actions/workflows/dev-charter-check.yml)
 
 A Chrome Extension template for AI-assisted development (Claude Code / GitHub Copilot). Designed for small closed teams (1–3 developers).
 

@@ -190,6 +190,8 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 ## 参照ドキュメント
 
+憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
+
 - [アーキテクチャ](docs/architecture.md)
 - [AI ガイドライン](docs/ai-guidelines.md)
 - [パーミッションポリシー](docs/permission-policy.md)
