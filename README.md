@@ -106,13 +106,12 @@ See [AI_CONTEXT.md](AI_CONTEXT.md) for details.
 
 | Document | Description |
 |---|---|
-| [Architecture](docs/architecture.md) | Component structure and design |
-| [AI Guidelines](docs/ai-guidelines.md) | AI tool usage rules |
+| [Architecture](docs/architecture.md) | Component structure, design, and edit guide |
+| [UI Design](docs/ui-design.md) | Color palette and icon guidelines |
 | [Permission Policy](docs/permission-policy.md) | Criteria for adding Chrome permissions |
+| [Privacy Policy](docs/privacy-policy.md) | Data collection policy |
 | [Security Checklist](docs/security-checklist.md) | Pre-release checklist |
 | [Release Process](docs/release-process.md) | Chrome Web Store submission steps |
-| [Maintenance Guide](docs/maintenance-guide.md) | Ongoing maintenance policy |
-| [Design Decisions](docs/design-decisions.md) | Technical decision log |
 | [Dev Charter](docs/dev-charter/README.md) | Cross-project development policies |
 
 ## Release

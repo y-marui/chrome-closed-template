@@ -4,6 +4,12 @@
 > `docs/dev-charter/` の内容をこのプロジェクト向けにコンパイルしています。
 > 日常作業では dev-charter を直接参照せず、このファイルを使用してください。
 
+## AI 向け参照順
+
+1. **README-jp.md** — プロジェクト概要・クイックスタート・コマンド・ドキュメント索引
+2. **AI_CONTEXT.md**（本ファイル）— 開発ルール・AI guardrails・設計方針・design decisions
+3. **docs/** — 詳細ナレッジベース（本ファイルの各セクション末尾の参照リンクから辿る）
+
 ---
 
 ## プロジェクト概要
@@ -124,18 +130,12 @@ src/
 
 ## UI ガイドライン
 
+詳細は [docs/ui-design.md](docs/ui-design.md) を参照。
+
 - ライト・ダーク・システムの各モードに対応する
-- カラーパレット:
-  - ライト: 背景 `#FFFFFF`、文字 `#4e454a`、強調 `#000000`
-  - ダーク: 背景 `#000000`、文字 `#bab1b6`、強調 `#FFFFFF`
-- アクセントカラーと装飾: 特別な意味がある場合を除き、ライト/ダーク間で色相・彩度を維持しつつ明度を反転させる
 - システムカラーを優先。ネイティブ UI コンポーネントを優先
 - Unicode 絵文字禁止（UI パーツ）
-- アイコン（Web / Chrome Extensions）:
-  - **Google Material Symbols**: 標準 UI アイコンの第一選択
-  - **Font Awesome Brands**: GitHub・X・Google 等のブランドロゴ
-  - **Lucide Icons**: よりモダンでクリーンなデザインが必要な場合の選択肢（MIT License）
-  - **SVG**: 上記に存在しない固有ロゴ・アセットが必要な場合のみ（直接埋め込みかアセット管理）
+- アイコン: Google Material Symbols（第一選択）/ Font Awesome Brands / Lucide Icons / SVG
 
 ---
 
@@ -188,13 +188,21 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 ---
 
+## 設計方針（Design Decisions）
+
+- 機能モジュールは意図的に省略してテンプレートをシンプルに保つ
+- テレメトリー・フィーチャーフラグは複雑さを避けるため非搭載
+
+---
+
 ## 参照ドキュメント
 
 憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
 
-- [アーキテクチャ](docs/architecture.md)
-- [AI ガイドライン](docs/ai-guidelines.md)
+- [アーキテクチャ・編集ガイド](docs/architecture.md)
+- [UI デザイン](docs/ui-design.md)
 - [パーミッションポリシー](docs/permission-policy.md)
+- [プライバシーポリシー](docs/privacy-policy.md)
 - [セキュリティチェックリスト](docs/security-checklist.md)
-- [メンテナンスガイド](docs/maintenance-guide.md)
+- [リリースプロセス](docs/release-process.md)
 - [開発憲章](docs/dev-charter/README.md)
