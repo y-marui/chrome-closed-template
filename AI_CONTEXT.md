@@ -6,9 +6,10 @@
 
 ## AI 向け参照順
 
-1. **README-jp.md** — プロジェクト概要・クイックスタート・コマンド・ドキュメント索引
-2. **AI_CONTEXT.md**（本ファイル）— 開発ルール・AI guardrails・設計方針・design decisions
-3. **docs/** — 詳細ナレッジベース（本ファイルの各セクション末尾の参照リンクから辿る）
+1. **README.md** — プロジェクト概要・セットアップ・コマンド・ドキュメント索引
+2. **docs/architecture.md** — モジュール・コンポーネント構造・エントリーポイント
+3. **docs/file-map.md** — ファイルレベルの依存関係
+4. **docs/specification.md** — 機能仕様・データフロー
 
 ---
 
@@ -200,6 +201,8 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
 
 - [アーキテクチャ・編集ガイド](docs/architecture.md)
+- [ファイルマップ](docs/file-map.md)
+- [機能仕様](docs/specification.md)
 - [UI デザイン](docs/ui-design.md)
 - [パーミッションポリシー](docs/permission-policy.md)
 - [プライバシーポリシー](docs/privacy-policy.md)

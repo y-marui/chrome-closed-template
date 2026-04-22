@@ -106,7 +106,9 @@ chrome-extension-template/
 
 | ドキュメント | 内容 |
 |---|---|
-| [アーキテクチャ・編集ガイド](docs/architecture.md) | コンポーネント構成・設計方針・編集ガイド |
+| [アーキテクチャ・編集ガイド](docs/architecture.md) | エントリーポイント・コンポーネント構成・編集ガイド |
+| [ファイルマップ](docs/file-map.md) | ファイルレベルの依存関係マップ |
+| [機能仕様](docs/specification.md) | 機能仕様・動作定義・データフロー |
 | [UI デザイン](docs/ui-design.md) | カラーパレット・アイコン選定ルール |
 | [パーミッションポリシー](docs/permission-policy.md) | Chrome 権限の追加基準 |
 | [プライバシーポリシー](docs/privacy-policy.md) | データ収集方針 |
