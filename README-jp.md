@@ -106,13 +106,14 @@ chrome-extension-template/
 
 | ドキュメント | 内容 |
 |---|---|
-| [アーキテクチャ](docs/architecture.md) | コンポーネント構成と設計方針 |
-| [AI ガイドライン](docs/ai-guidelines.md) | AI ツール利用ルール |
+| [アーキテクチャ・編集ガイド](docs/architecture.md) | エントリーポイント・コンポーネント構成・編集ガイド |
+| [ファイルマップ](docs/file-map.md) | ファイルレベルの依存関係マップ |
+| [機能仕様](docs/specification.md) | 機能仕様・動作定義・データフロー |
+| [UI デザイン](docs/ui-design.md) | カラーパレット・アイコン選定ルール |
 | [パーミッションポリシー](docs/permission-policy.md) | Chrome 権限の追加基準 |
+| [プライバシーポリシー](docs/privacy-policy.md) | データ収集方針 |
 | [セキュリティチェックリスト](docs/security-checklist.md) | リリース前確認事項 |
 | [リリースプロセス](docs/release-process.md) | Chrome Web Store への公開手順 |
-| [メンテナンスガイド](docs/maintenance-guide.md) | 継続的なメンテナンス方針 |
-| [設計方針](docs/design-decisions.md) | 技術的な意思決定の記録 |
 | [開発憲章](docs/dev-charter/README.md) | プロジェクト横断の開発ポリシー |
 
 ## リリース手順
