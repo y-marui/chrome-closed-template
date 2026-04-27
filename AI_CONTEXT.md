@@ -6,10 +6,17 @@
 
 ## AI 向け参照順
 
+タスク開始時に以下の順で参照する:
+
 1. **README.md** — プロジェクト概要・セットアップ・コマンド・ドキュメント索引
-2. **docs/architecture.md** — モジュール・コンポーネント構造・エントリーポイント
-3. **docs/file-map.md** — ファイルレベルの依存関係
-4. **docs/specification.md** — 機能仕様・データフロー
+2. **DEVELOPING.md** — ビルド・実装規約・命名規則
+
+必要に応じて以下を参照する（順不同）:
+- **CONTRIBUTING.md** — PR・Issue ルール
+- **docs/architecture.md** — モジュール・コンポーネント構造・エントリーポイント
+- **docs/file-map.md** — ファイルレベルの依存関係（情報が足りない・古い場合は適宜探索し、追記・更新する）
+- **docs/specification.md** — 機能仕様・データフロー
+- **docs/ui-design.md** — UI 設計・コンポーネント仕様
 
 ---
 
@@ -69,6 +76,23 @@ src/
 - 大きな変更前に方針を説明してから着手する
 - コメントは「なぜそうするか」のみ書く。コードから自明な処理には書かない
 - デバッグ用 `console.log` は本番コードに残さない
+
+---
+
+## ドキュメント同期ルール
+
+仕様・ルール・構成に変更が生じたとき、変更と同じ作業内で関連ドキュメントを更新する。
+対象は `docs/` 内のファイルに限らず、`AI_CONTEXT.md`・`README.md` 等のルートファイルも含む。
+
+---
+
+## dev-charter 変更ルール
+
+`docs/dev-charter/` 配下のファイルを**直接編集しない**。
+
+- 変更が必要な場合は dev-charter リポジトリ本体に Issue を立て、`git subtree pull` でアップデートを取り込む
+- `git subtree pull` によるアップデートのみ許可する
+- このプロジェクト固有のルールは `AI_CONTEXT.md` または専用ファイルに記載する
 
 ---
 
@@ -193,6 +217,23 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 - 機能モジュールは意図的に省略してテンプレートをシンプルに保つ
 - テレメトリー・フィーチャーフラグは複雑さを避けるため非搭載
+
+---
+
+## 初期セットアップ（テンプレートから作成した直後）
+
+テンプレートから新規プロジェクトを作成した直後に以下の手順を実行する:
+
+1. **GitHub リポジトリ設定を適用する**（テンプレートからの作成時はすべての設定が初期化されるため最優先）
+2. **README をリネームする**:
+   - `README_TEMPLATE.md` → `README.md`（旧 `README.md` を削除）
+   - `README_TEMPLATE-jp.md` → `README-jp.md`（旧 `README-jp.md` を削除）
+3. **プレースホルダを置換する**（`README.md`・`README-jp.md`・`LICENSE`）:
+   - `{user}` / `{repo}` / `{workflow}` — このプロジェクトのリポジトリ情報
+   - `[YEAR]` / `[AUTHOR]` — 現在の年と著作権者名
+   - `[USERNAME]` — GitHub ユーザー名（GitHub Sponsors バッジ・`.github/FUNDING.yml`）
+   - `[BMC_USERNAME]` — Buy Me a Coffee ユーザー名（`.github/FUNDING.yml`・サポートバッジ）
+4. **`dev-charter-check.yml` の cron をランダム化する**: `.github/workflows/dev-charter-check.yml` の `on.schedule.cron` をランダムな曜日・時・分に変更する（複数プロジェクトの同時実行を避けるため）
 
 ---
 

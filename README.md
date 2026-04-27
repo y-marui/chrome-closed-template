@@ -38,7 +38,17 @@ git clone https://github.com/[your-username]/[your-repo].git
 cd [your-repo]
 ```
 
-### 2. Set up environment
+### 2. Rename the template README files
+
+```sh
+mv README.md README_ORIGINAL.md   # back up the template README
+mv README_TEMPLATE.md README.md   # use the project README template
+mv README_TEMPLATE-jp.md README-jp.md  # use the Japanese project README template
+```
+
+Then update the placeholders (`{user}`, `{repo}`, `{workflow}`, `[YEAR]`, `[AUTHOR]`, `[USERNAME]`, `[BMC_USERNAME]`) in `README.md`, `README-jp.md`, and `LICENSE`.
+
+### 3. Set up environment
 
 Requires Node.js v20+ and [pre-commit](https://pre-commit.com).
 
@@ -75,6 +85,8 @@ chrome-extension-template/
 ├── test/unit/            unit tests
 ├── docs/                 documentation
 ├── manifest.json         extension manifest (MV3)
+├── DEVELOPING.md         build & code rules (developers)
+├── README_TEMPLATE.md    project README template (rename after setup)
 └── AI_CONTEXT.md         context file for AI tools
 ```
 
