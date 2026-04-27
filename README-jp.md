@@ -38,7 +38,17 @@ git clone https://github.com/[your-username]/[your-repo].git
 cd [your-repo]
 ```
 
-### 2. 環境構築
+### 2. テンプレート README をリネームする
+
+```sh
+mv README.md README_ORIGINAL.md           # テンプレート説明を退避
+mv README_TEMPLATE.md README.md           # プロジェクト用 README を配置
+mv README_TEMPLATE-jp.md README-jp.md    # 日本語版を配置
+```
+
+その後、`README.md`・`README-jp.md`・`LICENSE` のプレースホルダ（`{user}`・`{repo}`・`{workflow}`・`[YEAR]`・`[AUTHOR]`・`[USERNAME]`・`[BMC_USERNAME]`）を置き換えます。
+
+### 3. 環境構築
 
 Node.js v20 以上と [pre-commit](https://pre-commit.com) をインストールした上で実行します。
 
@@ -75,6 +85,8 @@ chrome-extension-template/
 ├── test/unit/            ユニットテスト
 ├── docs/                 ドキュメント
 ├── manifest.json         拡張機能マニフェスト（MV3）
+├── DEVELOPING.md         ビルド・実装規約（開発者向け）
+├── README_TEMPLATE.md    プロジェクト用 README 雛形（セットアップ後にリネーム）
 └── AI_CONTEXT.md         AI ツール向けコンテキスト
 ```
 
