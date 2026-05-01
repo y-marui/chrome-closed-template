@@ -123,16 +123,24 @@ chrome-extension-template/
 | [機能仕様](docs/specification.md) | 機能仕様・動作定義・データフロー |
 | [UI デザイン](docs/ui-design.md) | カラーパレット・アイコン選定ルール |
 | [パーミッションポリシー](docs/permission-policy.md) | Chrome 権限の追加基準 |
-| [プライバシーポリシー](docs/privacy-policy.md) | データ収集方針 |
 | [セキュリティチェックリスト](docs/security-checklist.md) | リリース前確認事項 |
 | [リリースプロセス](docs/release-process.md) | Chrome Web Store への公開手順 |
 | [開発憲章](docs/dev-charter/README.md) | プロジェクト横断の開発ポリシー |
 
+## プライバシーポリシー
+
+Chrome Web Store への公開にはプライバシーポリシーの URL が必要です。
+このテンプレートにはホスト済みのポリシーページは含まれていないため、公開前に用意してください。
+
+1. プライバシーポリシーページを作成する（GitHub Pages・Gist・自前サイトなど）。
+2. 必要であれば `manifest.json` に `"privacy_policy_url": "https://example.com/privacy-policy"` を追加する。または Chrome Web Store 提出時に URL を入力する。
+
 ## リリース手順
 
-1. `manifest.json` のバージョンを更新
-2. `npm run build` を実行（`extension.zip` が生成される）
-3. `extension.zip` を Chrome Web Store にアップロード
+1. 公開可能なプライバシーポリシーページを用意し、URL を控える。
+2. `manifest.json` のバージョンを更新する。
+3. `npm run build` を実行する（`extension.zip` が生成される）。
+4. `extension.zip` を Chrome Web Store にアップロードし、提出時にプライバシーポリシー URL を入力する。
 
 ## ライセンス
 

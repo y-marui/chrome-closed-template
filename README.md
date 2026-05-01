@@ -123,16 +123,24 @@ See [AI_CONTEXT.md](AI_CONTEXT.md) for details.
 | [Specification](docs/specification.md) | Functional spec, behavior definitions, and data flow |
 | [UI Design](docs/ui-design.md) | Color palette and icon guidelines |
 | [Permission Policy](docs/permission-policy.md) | Criteria for adding Chrome permissions |
-| [Privacy Policy](docs/privacy-policy.md) | Data collection policy |
 | [Security Checklist](docs/security-checklist.md) | Pre-release checklist |
 | [Release Process](docs/release-process.md) | Chrome Web Store submission steps |
 | [Dev Charter](docs/dev-charter/README.md) | Cross-project development policies |
 
+## Privacy Policy
+
+Chrome Web Store requires a privacy policy URL when publishing an extension.
+This template does not include a hosted policy page; set one up before releasing:
+
+1. Create a privacy policy page (e.g. GitHub Pages, a Gist, or your own site).
+2. Add `"privacy_policy_url": "https://example.com/privacy-policy"` to `manifest.json` if needed, or provide the URL during Chrome Web Store submission.
+
 ## Release
 
-1. Update version in `manifest.json`
-2. Run `npm run build` (generates `extension.zip`)
-3. Upload `extension.zip` to Chrome Web Store
+1. Prepare a publicly accessible privacy policy page and note its URL.
+2. Update version in `manifest.json`.
+3. Run `npm run build` (generates `extension.zip`).
+4. Upload `extension.zip` to Chrome Web Store and enter the privacy policy URL during submission.
 
 ## License
 
