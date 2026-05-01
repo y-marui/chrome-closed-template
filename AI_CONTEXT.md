@@ -15,8 +15,9 @@
 - **CONTRIBUTING.md** — PR・Issue ルール
 - **docs/architecture.md** — モジュール・コンポーネント構造・エントリーポイント
 - **docs/file-map.md** — ファイルレベルの依存関係（情報が足りない・古い場合は適宜探索し、追記・更新する）
-- **docs/specification.md** — 機能仕様・データフロー
+- **docs/specification.md** — 機能仕様・データフロー・パーミッションポリシー・セキュリティチェックリスト
 - **docs/ui-design.md** — UI 設計・コンポーネント仕様
+- **docs/maintenance.md** — docs/ メンテナンス用プロンプト集
 
 ---
 
@@ -60,7 +61,7 @@ src/
 - `shared/storage.js` と `shared/messaging.js` のみが Chrome API を呼び出してよい
 - `src/background/service-worker.js` では `chrome.runtime.onInstalled` 等のライフサイクルイベントを直接呼び出してよい
 - popup・content スクリプトから Chrome API を直接呼ばない
-- `permissions` / `host_permissions` の追加前は `docs/permission-policy.md` を確認する
+- `permissions` / `host_permissions` の追加前は `docs/specification.md` のパーミッション・セキュリティチェックリスト を確認する
 
 ---
 
@@ -243,10 +244,8 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 - [アーキテクチャ・編集ガイド](docs/architecture.md)
 - [ファイルマップ](docs/file-map.md)
-- [機能仕様](docs/specification.md)
+- [機能仕様・パーミッション・セキュリティ](docs/specification.md)
 - [UI デザイン](docs/ui-design.md)
-- [パーミッションポリシー](docs/permission-policy.md)
 - [プライバシーポリシー](docs/privacy-policy.md)
-- [セキュリティチェックリスト](docs/security-checklist.md)
-- [リリースプロセス](docs/release-process.md)
+- [docs/ メンテナンス](docs/maintenance.md)
 - [開発憲章](docs/dev-charter/README.md)
