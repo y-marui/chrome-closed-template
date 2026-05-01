@@ -36,7 +36,7 @@ pre-commit run --all-files  # run all security/quality hooks
 
 ## Code Rules
 
-1. Do not introduce new permissions without discussion — see [Permission Policy](docs/permission-policy.md)
+1. Do not introduce new permissions without discussion — see [Permission Policy](docs/specification.md#パーミッション)
 2. Only `shared/storage.js` and `shared/messaging.js` may call Chrome APIs directly
 3. Messaging must use `shared/messaging.js`
 4. Storage must use `shared/storage.js`
@@ -54,3 +54,9 @@ pre-commit run --all-files  # run all security/quality hooks
 - Check `chrome://extensions` for service worker errors
 - Use Chrome DevTools for popup and content script debugging
 - Check the browser console for runtime errors
+
+## Release
+
+1. Update version in `manifest.json`
+2. Run `npm run build` (generates `extension.zip`)
+3. Upload `extension.zip` to Chrome Web Store
