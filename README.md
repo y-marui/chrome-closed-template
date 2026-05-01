@@ -101,6 +101,7 @@ Files to edit when starting a new project from this template:
 | `src/popup/popup.html` / `popup.js` | Popup UI and actions |
 | `src/shared/message-types.js` | Message types for inter-component communication |
 | `public/icons/` | Replace placeholder 1×1px icons with 16×16, 48×48, 128×128 PNGs |
+| Privacy Policy page | Create and publish a privacy policy page (e.g. GitHub Pages) — required for Chrome Web Store submission |
 
 ## AI-Assisted Development
 

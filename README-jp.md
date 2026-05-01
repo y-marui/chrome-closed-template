@@ -101,6 +101,7 @@ chrome-extension-template/
 | `src/popup/popup.html` / `popup.js` | ポップアップ UI とアクション |
 | `src/shared/message-types.js` | コンポーネント間通信のメッセージタイプ |
 | `public/icons/` | プレースホルダー（1×1px）を 16×16・48×48・128×128px の PNG に差し替える |
+| プライバシーポリシーページ | Chrome Web Store 公開に必要なため、ポリシーページを作成・公開する（GitHub Pages など） |
 
 ## AI 支援開発
 

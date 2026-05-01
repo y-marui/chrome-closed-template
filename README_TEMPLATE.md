@@ -39,3 +39,7 @@ pre-commit run --all-files  # run all security/quality hooks
 ## License
 
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — see [LICENSE](LICENSE) for details.
+
+## Privacy Policy
+
+- URL: {privacy_policy_url}

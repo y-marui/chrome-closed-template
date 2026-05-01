@@ -39,3 +39,7 @@ pre-commit run --all-files  # セキュリティ・品質フック全実行
 ## License
 
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — 詳細は [LICENSE](LICENSE) を参照してください。
+
+## プライバシーポリシー
+
+- URL: {privacy_policy_url}
