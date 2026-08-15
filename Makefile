@@ -11,4 +11,7 @@ build: ## extension.zip を生成
 	npm run build
 
 update-charter: ## dev-charter を最新版に更新 (git subtree pull)
+	git remote | grep -q '^dev-charter$$' || \
+	  git remote add dev-charter https://github.com/y-marui/dev-charter
+	git fetch dev-charter
 	git subtree pull --prefix=docs/dev-charter dev-charter main --squash
