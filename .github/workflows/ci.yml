@@ -16,5 +16,9 @@ jobs:
         with:
           node-version: '20'
       - uses: pre-commit/action@v3.0.1
+        env:
+          # powershell-lint is a local-only convenience check (see
+          # .pre-commit-config.yaml); it isn't required to gate merges.
+          SKIP: powershell-lint
       - run: npm test
       - run: python3 build_extension_zip.py

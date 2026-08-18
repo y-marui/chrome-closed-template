@@ -228,7 +228,6 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
    - `[YEAR]` / `[AUTHOR]` — 現在の年と著作権者名
    - `[USERNAME]` — GitHub ユーザー名（GitHub Sponsors バッジ・`.github/FUNDING.yml`）
    - `[BMC_USERNAME]` — Buy Me a Coffee ユーザー名（`.github/FUNDING.yml`・サポートバッジ）
-4. **`dev-charter-check.yml` の cron をランダム化する**: `.github/workflows/dev-charter-check.yml` の `on.schedule.cron` をランダムな曜日・時・分に変更する（複数プロジェクトの同時実行を避けるため）
 
 ---
 
