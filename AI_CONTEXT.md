@@ -35,8 +35,8 @@
 
 ```sh
 npm test                    # ユニットテスト
-npm run lint                 # ESLint
-npm run build                # extension.zip を生成
+npm run lint                # ESLint (コード品質チェック)
+npm run build               # extension.zip を生成
 pre-commit run --all-files  # フック全実行
 ```
 
