@@ -60,13 +60,16 @@ npm test                    # verify tests
 
 ### 3. Load extension
 
+Both browsers require a build first (`npm run build` builds both `stage/chrome/` and
+`stage/firefox/` at once).
+
 **Chrome:**
-1. Open `chrome://extensions` in Chrome
-2. Enable Developer Mode
-3. Click "Load Unpacked" and select the project root (no build needed for local dev)
+1. Run `npm run build:chrome` (or `npm run build`)
+2. Open `chrome://extensions` in Chrome, enable Developer Mode
+3. Click "Load Unpacked" and select `stage/chrome/`
 
 **Firefox:**
-1. Run `npm run build:firefox` (also leaves the unpacked, bundled output in `stage/firefox/`)
+1. Run `npm run build:firefox` (or `npm run build`)
 2. Open `about:debugging#/runtime/this-firefox` in Firefox
 3. Click "Load Temporary Add-on" and select `stage/firefox/manifest.json`
 
@@ -74,7 +77,8 @@ npm test                    # verify tests
 
 ```sh
 npm test                    # run unit tests
-npm run build                # generate the Chrome Web Store ZIP in dist/ (alias for build:chrome)
+npm run build                # build both Chrome and Firefox ZIPs in dist/
+npm run build:chrome         # generate the Chrome Web Store ZIP in dist/
 npm run build:firefox        # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```

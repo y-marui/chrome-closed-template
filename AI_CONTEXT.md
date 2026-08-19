@@ -41,13 +41,15 @@ npm run build:firefox       # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # フック全実行
 ```
 
-`npm run build`（`build:chrome` のエイリアス）と `build:firefox` はどちらも `scripts/build.js` が
-esbuild で `src/` 全体を1回だけバンドルし、`manifest.json` の `background` 指定だけを
-Chrome（`service_worker`）/Firefox（`scripts` 配列 + `browser_specific_settings.gecko`）向けに
-出し分ける。ローカルでの動作確認（`chrome://extensions` から Load Unpacked）はビルド不要で
-プロジェクトルートをそのまま読み込める（`manifest.json` の `background.type: "module"` は
-ローカル直接読み込み用に維持している。ビルド後の ZIP では esbuild が IIFE 形式で出力する
-ため不要になり `scripts/build.js` が自動的に取り除く）。
+`scripts/build.js` が esbuild で `src/` 全体を1回だけバンドルし、`manifest.json` の
+`background` 指定だけを Chrome（`service_worker`）/Firefox（`scripts` 配列 +
+`browser_specific_settings.gecko`）向けに出し分ける。`npm run build`（引数無し）は
+`build:chrome`・`build:firefox` の両方を実行し、`stage/chrome/`・`stage/firefox/` に
+それぞれ展開する（同時に両方 Load Unpacked できる）。
+
+**ローカルでの動作確認は Chrome・Firefox とも必ずビルドが必要。** プロジェクトルートを
+直接 Load Unpacked することはできない（`src/background/service-worker.js` は `import` を
+使う ES Module で、`manifest.json` はバンドル済みの plain script 前提の記述になっているため）。
 
 ---
 

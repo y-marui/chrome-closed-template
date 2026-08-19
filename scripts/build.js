@@ -68,14 +68,6 @@ for (const rel of STATIC_INCLUDE) {
   fs.cpSync(src, dest, { recursive: true });
 }
 
-// esbuild が IIFE 形式で出力するため、popup.html の type="module" は不要
-// （つけたままでも壊れはしないが、実体と食い違うため取り除く）
-const popupHtmlPath = path.join(STAGE_DIR, 'src/popup/popup.html');
-fs.writeFileSync(
-  popupHtmlPath,
-  fs.readFileSync(popupHtmlPath, 'utf-8').replace('<script type="module" src="popup.js">', '<script src="popup.js">')
-);
-
 // ── esbuild でバンドル（元のパスと同じ場所に出力） ────────────────────
 await build({
   entryPoints: ENTRY_POINTS,
@@ -91,7 +83,6 @@ await build({
 
 // ── manifest.json をターゲットごとに調整 ─────────────────────────────
 const stageManifest = JSON.parse(fs.readFileSync(path.join(STAGE_DIR, 'manifest.json'), 'utf-8'));
-delete stageManifest.background.type; // バンドル後は plain script として動くため不要
 
 if (target === 'firefox') {
   const serviceWorker = stageManifest.background.service_worker;

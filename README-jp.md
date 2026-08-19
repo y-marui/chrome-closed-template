@@ -60,13 +60,16 @@ npm test                 # ユニットテスト確認
 
 ### 3. 拡張機能の読み込み
 
+Chrome・Firefox とも先にビルドが必要です（`npm run build` で両方まとめて
+`stage/chrome/`・`stage/firefox/` に生成されます）。
+
 **Chrome:**
-1. Chrome で `chrome://extensions` を開く
-2. デベロッパーモードを有効にする
-3. 「パッケージ化されていない拡張機能を読み込む」でプロジェクトルートを選択（ローカル確認はビルド不要）
+1. `npm run build:chrome`（または `npm run build`）を実行する
+2. Chrome で `chrome://extensions` を開き、デベロッパーモードを有効にする
+3. 「パッケージ化されていない拡張機能を読み込む」で `stage/chrome/` を選択
 
 **Firefox:**
-1. `npm run build:firefox` を実行する（バンドル済みの展開済みファイル一式が `stage/firefox/` にも残る）
+1. `npm run build:firefox`(または `npm run build`)を実行する
 2. Firefox で `about:debugging#/runtime/this-firefox` を開く
 3. 「一時的なアドオンを読み込む」で `stage/firefox/manifest.json` を選択
 
@@ -74,7 +77,8 @@ npm test                 # ユニットテスト確認
 
 ```sh
 npm test                    # ユニットテスト実行
-npm run build                # Chrome Web Store 提出用 ZIP を dist/ に生成（build:chrome のエイリアス）
+npm run build                # Chrome・Firefox 両方の ZIP を dist/ に生成
+npm run build:chrome         # Chrome Web Store 提出用 ZIP を dist/ に生成
 npm run build:firefox        # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # セキュリティ・品質フック全実行
 ```
