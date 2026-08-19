@@ -32,7 +32,8 @@ npm test                    # ユニットテスト確認
 
 ```sh
 npm test                    # ユニットテスト実行
-npm run build               # extension.zip を生成
+npm run build                # Chrome Web Store 提出用 ZIP を dist/ に生成
+npm run build:firefox        # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # セキュリティ・品質フック全実行
 ```
 

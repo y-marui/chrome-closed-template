@@ -24,7 +24,7 @@ A Chrome Extension template for AI-assisted development (Claude Code / GitHub Co
 - ✅ Shared Chrome API wrappers (messaging.js / storage.js)
 - ✅ Unit test setup (Node.js test runner)
 - ✅ pre-commit security hooks (gitleaks, secret detection)
-- ✅ `npm run build` generates extension.zip automatically
+- ✅ `npm run build` (Chrome) / `npm run build:firefox` bundle with esbuild and generate submission-ready ZIPs in `dist/`
 - ✅ AI context files included (AI_CONTEXT.md / CLAUDE.md)
 
 ## Quick Start
@@ -60,15 +60,22 @@ npm test                    # verify tests
 
 ### 3. Load extension
 
+**Chrome:**
 1. Open `chrome://extensions` in Chrome
 2. Enable Developer Mode
-3. Click "Load Unpacked" and select the project root
+3. Click "Load Unpacked" and select the project root (no build needed for local dev)
+
+**Firefox:**
+1. Run `npm run build:firefox` (also leaves the unpacked, bundled output in `stage/`)
+2. Open `about:debugging#/runtime/this-firefox` in Firefox
+3. Click "Load Temporary Add-on" and select `stage/manifest.json`
 
 ## Commands
 
 ```sh
 npm test                    # run unit tests
-npm run build               # generate extension.zip
+npm run build                # generate the Chrome Web Store ZIP in dist/ (alias for build:chrome)
+npm run build:firefox        # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```
 
@@ -101,6 +108,7 @@ Files to edit when starting a new project from this template:
 | `src/popup/popup.html` / `popup.js` | Popup UI and actions |
 | `src/shared/message-types.js` | Message types for inter-component communication |
 | `public/icons/` | Replace placeholder 1×1px icons with 16×16, 48×48, 128×128 PNGs |
+| `scripts/build.js` | Replace the `{extension-id}@example.com` placeholder with a real ID before publishing to Firefox AMO |
 | Privacy Policy page | Create and publish a privacy policy page (e.g. GitHub Pages) — required for Chrome Web Store submission |
 
 ## AI-Assisted Development
@@ -140,8 +148,8 @@ This template does not include a hosted policy page; set one up before releasing
 
 1. Prepare a publicly accessible privacy policy page and note its URL.
 2. Update version in `manifest.json`.
-3. Run `npm run build` (generates `extension.zip`).
-4. Upload `extension.zip` to Chrome Web Store and enter the privacy policy URL during submission.
+3. Run `npm run build` (generates `dist/{name}-{version}-chrome.zip`) and upload it to Chrome Web Store, entering the privacy policy URL during submission.
+4. For Firefox: run `npm run build:firefox` and upload `dist/{name}-{version}-firefox.zip` to addons.mozilla.org.
 
 ## License
 

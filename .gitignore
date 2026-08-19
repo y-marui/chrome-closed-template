@@ -1,6 +1,5 @@
 node_modules
 dist
+stage
 *.log
 .DS_Store
-__pycache__
-extension.zip

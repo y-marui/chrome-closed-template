@@ -24,7 +24,7 @@ Chrome 拡張機能を AI 支援開発（Claude Code・GitHub Copilot）で構�
 - ✅ Chrome API 共有ラッパー（messaging.js / storage.js）
 - ✅ ユニットテスト環境設定済み（Node.js テストランナー）
 - ✅ pre-commit セキュリティフック（gitleaks・シークレット検出）
-- ✅ `npm run build` で extension.zip を自動生成
+- ✅ `npm run build`（Chrome）/ `npm run build:firefox` — esbuild でバンドルし、提出用 ZIP を `dist/` に生成
 - ✅ AI 向けコンテキストファイル（AI_CONTEXT.md / CLAUDE.md）付き
 
 ## クイックスタート
@@ -60,15 +60,22 @@ npm test                 # ユニットテスト確認
 
 ### 3. 拡張機能の読み込み
 
+**Chrome:**
 1. Chrome で `chrome://extensions` を開く
 2. デベロッパーモードを有効にする
-3. 「パッケージ化されていない拡張機能を読み込む」でプロジェクトルートを選択
+3. 「パッケージ化されていない拡張機能を読み込む」でプロジェクトルートを選択（ローカル確認はビルド不要）
+
+**Firefox:**
+1. `npm run build:firefox` を実行する（バンドル済みの展開済みファイル一式が `stage/` にも残る）
+2. Firefox で `about:debugging#/runtime/this-firefox` を開く
+3. 「一時的なアドオンを読み込む」で `stage/manifest.json` を選択
 
 ## コマンド一覧
 
 ```sh
 npm test                    # ユニットテスト実行
-npm run build               # extension.zip を生成
+npm run build                # Chrome Web Store 提出用 ZIP を dist/ に生成（build:chrome のエイリアス）
+npm run build:firefox        # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # セキュリティ・品質フック全実行
 ```
 
@@ -101,6 +108,7 @@ chrome-extension-template/
 | `src/popup/popup.html` / `popup.js` | ポップアップ UI とアクション |
 | `src/shared/message-types.js` | コンポーネント間通信のメッセージタイプ |
 | `public/icons/` | プレースホルダー（1×1px）を 16×16・48×48・128×128px の PNG に差し替える |
+| `scripts/build.js` | Firefox AMO への公開予定がある場合、`{extension-id}@example.com` を実際の一意な ID に差し替える |
 | プライバシーポリシーページ | Chrome Web Store 公開に必要なため、ポリシーページを作成・公開する（GitHub Pages など） |
 
 ## AI 支援開発
@@ -140,8 +148,8 @@ Chrome Web Store への公開にはプライバシーポリシーの URL が必�
 
 1. 公開可能なプライバシーポリシーページを用意し、URL を控える。
 2. `manifest.json` のバージョンを更新する。
-3. `npm run build` を実行する（`extension.zip` が生成される）。
-4. `extension.zip` を Chrome Web Store にアップロードし、提出時にプライバシーポリシー URL を入力する。
+3. `npm run build` を実行し（`dist/{name}-{version}-chrome.zip` が生成される）、Chrome Web Store にアップロードして提出時にプライバシーポリシー URL を入力する。
+4. Firefox にも公開する場合: `npm run build:firefox` を実行し、`dist/{name}-{version}-firefox.zip` を addons.mozilla.org にアップロードする。
 
 ## ライセンス
 

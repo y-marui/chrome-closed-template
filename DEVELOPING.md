@@ -21,7 +21,8 @@ pre-commit install  # required before first commit
 
 ```sh
 npm test                    # run unit tests
-npm run build               # generate extension.zip
+npm run build:chrome        # generate the Chrome Web Store ZIP in dist/
+npm run build:firefox       # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```
 
@@ -58,5 +59,6 @@ pre-commit run --all-files  # run all security/quality hooks
 ## Release
 
 1. Update version in `manifest.json`
-2. Run `npm run build` (generates `extension.zip`)
-3. Upload `extension.zip` to Chrome Web Store
+2. Run `npm run build:chrome` (generates `dist/{name}-{version}-chrome.zip`)
+3. Upload the zip to Chrome Web Store
+4. For Firefox: run `npm run build:firefox` and upload `dist/{name}-{version}-firefox.zip` to addons.mozilla.org

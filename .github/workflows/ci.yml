@@ -95,7 +95,21 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-      - run: python3 build_extension_zip.py
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+      - name: Install
+        run: npm install --ignore-scripts
+      - name: Build (Chrome)
+        run: npm run build:chrome
+      - name: Build (Firefox)
+        run: npm run build:firefox
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: chrome-extension-template-${{ github.sha }}
+          path: dist/*.zip
+          retention-days: ${{ github.event_name == 'pull_request' && 7 || 30 }}
 
   gate:
     name: Required Checks

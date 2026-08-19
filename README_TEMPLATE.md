@@ -32,7 +32,8 @@ Load the extension:
 
 ```sh
 npm test                    # run unit tests
-npm run build               # generate extension.zip
+npm run build                # generate the Chrome Web Store ZIP in dist/
+npm run build:firefox        # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```
 
