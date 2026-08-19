@@ -10,6 +10,21 @@ npm install
 pre-commit install  # required before first commit
 ```
 
+## Loading the Extension
+
+**Chrome:**
+1. Open `chrome://extensions` and enable Developer Mode
+2. Click "Load unpacked" and select the repository root (no build needed;
+   `src/` runs natively as ES Modules)
+
+**Firefox:**
+1. Run `npm run build:firefox`
+2. Open `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on" and select `stage/firefox/manifest.json`
+
+`npm run build` (no args) builds both `stage/chrome/` and `stage/firefox/` at once, so both
+can be loaded side by side for comparison.
+
 ## Development Flow
 
 1. Create a feature branch from `main` (`feat/`, `fix/`, `docs/`, `chore/` prefix)
