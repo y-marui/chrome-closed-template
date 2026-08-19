@@ -6,14 +6,17 @@
  *
  * バンドル出力は元のソースファイルと同じ相対パスに配置する
  * （manifest.json のパス指定を書き換えずに済ませるため）。
- * Chrome/Firefox の差異は manifest.json の background 指定のみで、
- * バンドル自体は共通の1回だけ行う。
+ * バンドルされる JS の中身は Chrome/Firefox で共通で、差異は
+ * manifest.json の background 指定のみ（stage/{chrome,firefox}/ に分けて
+ * 出力するのは、同時に両方 Load Unpacked できるようにするため）。
  *
  * 使用方法:
  *   node scripts/build.js chrome
  *   node scripts/build.js firefox
  *
- * 出力先: dist/{name}-{version}-{chrome,firefox}.zip
+ * 出力先:
+ *   stage/chrome/ , stage/firefox/  （展開済み、Load Unpacked 用。ターゲットごとに別ディレクトリ）
+ *   dist/{name}-{version}-{chrome,firefox}.zip
  */
 
 import { build } from 'esbuild';
@@ -24,7 +27,6 @@ import { execSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const STAGE_DIR = path.join(ROOT, 'stage');
 const DIST_DIR = path.join(ROOT, 'dist');
 
 const target = process.argv[2];
@@ -32,6 +34,8 @@ if (!['chrome', 'firefox'].includes(target)) {
   console.error('Usage: node scripts/build.js <chrome|firefox>');
   process.exit(1);
 }
+
+const STAGE_DIR = path.join(ROOT, 'stage', target);
 
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'manifest.json'), 'utf-8'));
 const pkg      = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf-8'));

@@ -66,9 +66,9 @@ npm test                    # verify tests
 3. Click "Load Unpacked" and select the project root (no build needed for local dev)
 
 **Firefox:**
-1. Run `npm run build:firefox` (also leaves the unpacked, bundled output in `stage/`)
+1. Run `npm run build:firefox` (also leaves the unpacked, bundled output in `stage/firefox/`)
 2. Open `about:debugging#/runtime/this-firefox` in Firefox
-3. Click "Load Temporary Add-on" and select `stage/manifest.json`
+3. Click "Load Temporary Add-on" and select `stage/firefox/manifest.json`
 
 ## Commands
 

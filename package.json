@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.js chrome",
+    "build": "npm run build:chrome && npm run build:firefox",
     "build:chrome": "node scripts/build.js chrome",
     "build:firefox": "node scripts/build.js firefox",
     "test": "node test/unit/shared.test.js",

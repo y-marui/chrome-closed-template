@@ -66,9 +66,9 @@ npm test                 # ユニットテスト確認
 3. 「パッケージ化されていない拡張機能を読み込む」でプロジェクトルートを選択（ローカル確認はビルド不要）
 
 **Firefox:**
-1. `npm run build:firefox` を実行する（バンドル済みの展開済みファイル一式が `stage/` にも残る）
+1. `npm run build:firefox` を実行する（バンドル済みの展開済みファイル一式が `stage/firefox/` にも残る）
 2. Firefox で `about:debugging#/runtime/this-firefox` を開く
-3. 「一時的なアドオンを読み込む」で `stage/manifest.json` を選択
+3. 「一時的なアドオンを読み込む」で `stage/firefox/manifest.json` を選択
 
 ## コマンド一覧
 
