@@ -35,9 +35,21 @@
 
 ```sh
 npm test                    # ユニットテスト
-npm run build               # extension.zip を生成
+npm run lint                # ESLint (コード品質チェック)
+npm run build:chrome        # Chrome Web Store 提出用 ZIP を dist/ に生成
+npm run build:firefox       # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # フック全実行
 ```
+
+`scripts/build.js` が esbuild で `src/` 全体を1回だけバンドルし、`manifest.json` の
+`background` 指定だけを Chrome（`service_worker`）/Firefox（`scripts` 配列 +
+`browser_specific_settings.gecko`）向けに出し分ける。`npm run build`（引数無し）は
+`build:chrome`・`build:firefox` の両方を実行し、`stage/chrome/`・`stage/firefox/` に
+それぞれ展開する（同時に両方 Load Unpacked できる）。
+
+**ローカルでの動作確認は Chrome・Firefox とも必ずビルドが必要。** プロジェクトルートを
+直接 Load Unpacked することはできない（`src/background/service-worker.js` は `import` を
+使う ES Module で、`manifest.json` はバンドル済みの plain script 前提の記述になっているため）。
 
 ---
 
@@ -228,6 +240,8 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
    - `[YEAR]` / `[AUTHOR]` — 現在の年と著作権者名
    - `[USERNAME]` — GitHub ユーザー名（GitHub Sponsors バッジ・`.github/FUNDING.yml`）
    - `[BMC_USERNAME]` — Buy Me a Coffee ユーザー名（`.github/FUNDING.yml`・サポートバッジ）
+4. **Firefox 提出用 ID を設定する**（Firefox AMO への提出予定がある場合）:
+   - `scripts/build.js` の `{extension-id}@example.com` を実際の一意な ID（例: `my-extension@example.com`）に置換する
 
 ---
 

@@ -10,6 +10,21 @@ npm install
 pre-commit install  # required before first commit
 ```
 
+## Loading the Extension
+
+Both Chrome and Firefox require a build first — `npm run build` (no args) builds both
+`stage/chrome/` and `stage/firefox/` at once, so both can be loaded side by side.
+
+**Chrome:**
+1. Run `npm run build:chrome` (or `npm run build`)
+2. Open `chrome://extensions` and enable Developer Mode
+3. Click "Load unpacked" and select `stage/chrome/`
+
+**Firefox:**
+1. Run `npm run build:firefox` (or `npm run build`)
+2. Open `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on" and select `stage/firefox/manifest.json`
+
 ## Development Flow
 
 1. Create a feature branch from `main` (`feat/`, `fix/`, `docs/`, `chore/` prefix)
@@ -21,7 +36,8 @@ pre-commit install  # required before first commit
 
 ```sh
 npm test                    # run unit tests
-npm run build               # generate extension.zip
+npm run build:chrome        # generate the Chrome Web Store ZIP in dist/
+npm run build:firefox       # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```
 
@@ -58,5 +74,6 @@ pre-commit run --all-files  # run all security/quality hooks
 ## Release
 
 1. Update version in `manifest.json`
-2. Run `npm run build` (generates `extension.zip`)
-3. Upload `extension.zip` to Chrome Web Store
+2. Run `npm run build:chrome` (generates `dist/{name}-{version}-chrome.zip`)
+3. Upload the zip to Chrome Web Store
+4. For Firefox: run `npm run build:firefox` and upload `dist/{name}-{version}-firefox.zip` to addons.mozilla.org

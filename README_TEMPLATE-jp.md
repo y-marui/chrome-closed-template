@@ -22,17 +22,19 @@ pre-commit run --all-files  # 動作確認
 npm test                    # ユニットテスト確認
 ```
 
-拡張機能を読み込む:
+拡張機能を読み込む(先にビルドが必要。`npm run build` で Chrome・Firefox 両方生成される):
 
-1. Chrome で `chrome://extensions` を開く
-2. デベロッパーモードを有効にする
-3. 「パッケージ化されていない拡張機能を読み込む」でプロジェクトルートを選択
+1. `npm run build` を実行する
+2. Chrome で `chrome://extensions` を開き、デベロッパーモードを有効にする
+3. 「パッケージ化されていない拡張機能を読み込む」で `stage/chrome/` を選択
 
 ## Usage
 
 ```sh
 npm test                    # ユニットテスト実行
-npm run build               # extension.zip を生成
+npm run build                # Chrome・Firefox 両方の ZIP を dist/ に生成
+npm run build:chrome         # Chrome Web Store 提出用 ZIP を dist/ に生成
+npm run build:firefox        # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # セキュリティ・品質フック全実行
 ```
 

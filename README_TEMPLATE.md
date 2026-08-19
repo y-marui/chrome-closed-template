@@ -22,17 +22,19 @@ pre-commit run --all-files  # verify hooks
 npm test                    # verify tests
 ```
 
-Load the extension:
+Load the extension (build first — `npm run build` builds both Chrome and Firefox):
 
-1. Open `chrome://extensions` in Chrome
-2. Enable Developer Mode
-3. Click "Load Unpacked" and select the project root
+1. Run `npm run build`
+2. Open `chrome://extensions` in Chrome, enable Developer Mode
+3. Click "Load Unpacked" and select `stage/chrome/`
 
 ## Usage
 
 ```sh
 npm test                    # run unit tests
-npm run build               # generate extension.zip
+npm run build                # build both Chrome and Firefox ZIPs in dist/
+npm run build:chrome         # generate the Chrome Web Store ZIP in dist/
+npm run build:firefox        # generate the Firefox AMO ZIP in dist/
 pre-commit run --all-files  # run all security/quality hooks
 ```
 
