@@ -45,3 +45,7 @@ Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — 詳細は [LICENSE](LICEN
 ## プライバシーポリシー
 
 - URL: {privacy_policy_url}
+
+---
+
+*この文書には英語版 [README.md](README.md) があります。編集時は同一コミットで更新してください。*

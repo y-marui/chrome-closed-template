@@ -158,3 +158,7 @@ This template does not include a hosted policy page; set one up before releasing
 ## License
 
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — see [LICENSE](LICENSE) for details.
+
+---
+
+*This document has a Japanese canonical version [README-jp.md](README-jp.md). Update both in the same commit when editing.*

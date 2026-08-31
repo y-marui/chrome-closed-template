@@ -45,3 +45,7 @@ Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — see [LICENSE](LICENSE) fo
 ## Privacy Policy
 
 - URL: {privacy_policy_url}
+
+---
+
+*This document has a Japanese canonical version [README-jp.md](README-jp.md). Update both in the same commit when editing.*

@@ -158,3 +158,7 @@ Chrome Web Store への公開にはプライバシーポリシーの URL が必�
 ## ライセンス
 
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — 詳細は [LICENSE](LICENSE) を参照してください。
+
+---
+
+*この文書には英語版 [README.md](README.md) があります。編集時は同一コミットで更新してください。*
