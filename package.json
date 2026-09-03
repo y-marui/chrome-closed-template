@@ -8,7 +8,8 @@
     "build:chrome": "node scripts/build.js chrome",
     "build:firefox": "node scripts/build.js firefox",
     "test": "node test/unit/shared.test.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "validate:store": "node scripts/validate-store-assets.js"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,0 +1,29 @@
+name: Validate Store Assets
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'assets/store/**'
+      - 'docs/store/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Use Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate store assets
+        run: npm run validate:store
