@@ -14,4 +14,4 @@ build-firefox: ## Firefox AMO 提出用 ZIP を dist/ に生成
 	npm run build:firefox
 
 update-charter: ## dev-charter を最新版に更新 (git subtree pull)
-	CHARTER_UPDATE_ONLY=1 bash <(curl -fsSL https://raw.githubusercontent.com/y-marui/dev-charter/main/scripts/install.sh)
+	curl -fsSL https://raw.githubusercontent.com/y-marui/dev-charter/main/scripts/install.sh | CHARTER_UPDATE_ONLY=1 bash
