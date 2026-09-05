@@ -77,3 +77,6 @@ pre-commit run --all-files  # run all security/quality hooks
 2. Run `npm run build:chrome` (generates `dist/{name}-{version}-chrome.zip`)
 3. Upload the zip to Chrome Web Store
 4. For Firefox: run `npm run build:firefox` and upload `dist/{name}-{version}-firefox.zip` to addons.mozilla.org
+
+See [docs/release-process.md](docs/release-process.md) for the full checklist (CHANGELOG,
+security review, `dist/` verification, zip contents, git tags).

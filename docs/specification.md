@@ -62,7 +62,4 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 
 ## セキュリティチェックリスト
 
-- パーミッション最小化: 必要なものだけ要求する
-- `host_permissions` 最小化: `<all_urls>` のような広域パターンを避ける
-- リモートコード実行禁止: 外部スクリプトをフェッチして実行しない
-- インラインスクリプト禁止: HTML 内に `<script>` ブロックや `onclick` 属性を書かない
+詳細は [docs/security-checklist.md](security-checklist.md) を参照。

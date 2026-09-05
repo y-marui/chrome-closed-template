@@ -135,7 +135,7 @@ See [AI_CONTEXT.md](AI_CONTEXT.md) for details.
 | [File Map](docs/file-map.md) | File-level dependency map |
 | [Specification](docs/specification.md) | Functional spec, behavior definitions, and data flow |
 | [UI Design](docs/ui-design.md) | Color palette and icon guidelines |
-| [Permission Policy](docs/permission-policy.md) | Criteria for adding Chrome permissions |
+| [Permission Policy](docs/specification.md#パーミッション) | Criteria for adding Chrome permissions |
 | [Security Checklist](docs/security-checklist.md) | Pre-release checklist |
 | [Release Process](docs/release-process.md) | Chrome Web Store submission steps |
 | [Dev Charter](docs/dev-charter/README.md) | Cross-project development policies |
