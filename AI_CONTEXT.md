@@ -257,6 +257,6 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 - [セキュリティチェックリスト](docs/security-checklist.md)
 - [リリースプロセス](docs/release-process.md)
 - [UI デザイン](docs/ui-design.md)
-- [プライバシーポリシー](README-jp.md#プライバシーポリシー)
+- [プライバシーポリシー](README-jp.md#privacy-policy)
 - [docs/ メンテナンス](docs/maintenance.md)
 - [開発憲章](docs/dev-charter/README.md)
