@@ -59,6 +59,13 @@ Chrome Web Store 提出前およびコードレビュー時に確認するセキ
 - [ ] `object-src` が `'none'` になっているか
 - [ ] CSP が `manifest.json` に明示的に定義されているか
 
+## Remove Unnecessary Permissions Before Release
+
+- [ ] 開発中にのみ使用した権限が本番の manifest に残っていないか（再掲・提出直前に再確認する）
+- [ ] デバッグ用の権限（例: フィードバック系 API）は本番では削除を検討したか
+- [ ] コメントアウトされた `permissions`/`host_permissions` エントリが存在しないか
+- [ ] `manifest.json` の `version` がリリース対象のバージョンと一致しているか
+
 ## Data Handling
 
 - [ ] ユーザーの入力内容・閲覧履歴をサーバーに送信していないか
