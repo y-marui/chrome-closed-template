@@ -17,7 +17,7 @@ Chrome 拡張機能を AI 支援開発（Claude Code・GitHub Copilot）で構�
 | AI ツール | Claude Code / GitHub Copilot / Gemini CLI |
 | 動作環境 | Chrome（最新版） |
 
-## 特徴
+## Features
 
 - ✅ Manifest V3 対応（サービスワーカーベース）
 - ✅ 役割が明確な 3 層アーキテクチャ（background / content / popup）
@@ -27,9 +27,9 @@ Chrome 拡張機能を AI 支援開発（Claude Code・GitHub Copilot）で構�
 - ✅ `npm run build`（Chrome）/ `npm run build:firefox` — esbuild でバンドルし、提出用 ZIP を `dist/` に生成
 - ✅ AI 向けコンテキストファイル（AI_CONTEXT.md / CLAUDE.md）付き
 
-## クイックスタート
+## Quick Start
 
-### 1. リポジトリを使用する
+### 1. Use This Repository
 
 「Use this template」ボタンから新規リポジトリを作成し、クローンします。
 
@@ -38,7 +38,7 @@ git clone https://github.com/[your-username]/[your-repo].git
 cd [your-repo]
 ```
 
-### 2. テンプレート README をリネームする
+### 2. Rename the Template README
 
 ```sh
 mv README.md README_ORIGINAL.md           # テンプレート説明を退避
@@ -48,7 +48,7 @@ mv README_TEMPLATE-jp.md README-jp.md    # 日本語版を配置
 
 その後、`README.md`・`README-jp.md`・`LICENSE` のプレースホルダ（`{user}`・`{repo}`・`{workflow}`・`[YEAR]`・`[AUTHOR]`・`[USERNAME]`・`[BMC_USERNAME]`）を置き換えます。
 
-### 3. 環境構築
+### 3. Environment Setup
 
 Node.js v20 以上と [pre-commit](https://pre-commit.com) をインストールした上で実行します。
 
@@ -58,7 +58,7 @@ pre-commit run --all-files  # 動作確認
 npm test                 # ユニットテスト確認
 ```
 
-### 3. 拡張機能の読み込み
+### 4. Load the Extension
 
 Chrome・Firefox とも先にビルドが必要です（`npm run build` で両方まとめて
 `stage/chrome/`・`stage/firefox/` に生成されます）。
@@ -73,7 +73,7 @@ Chrome・Firefox とも先にビルドが必要です（`npm run build` で両�
 2. Firefox で `about:debugging#/runtime/this-firefox` を開く
 3. 「一時的なアドオンを読み込む」で `stage/firefox/manifest.json` を選択
 
-## コマンド一覧
+## Commands
 
 ```sh
 npm test                    # ユニットテスト実行
@@ -83,7 +83,7 @@ npm run build:firefox        # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # セキュリティ・品質フック全実行
 ```
 
-## プロジェクト構造
+## Project Structure
 
 ```
 chrome-extension-template/
@@ -101,7 +101,7 @@ chrome-extension-template/
 └── AI_CONTEXT.md         AI ツール向けコンテキスト
 ```
 
-## カスタマイズ手順
+## Customization
 
 テンプレートから新規プロジェクトを始める際に編集するファイル:
 
@@ -115,7 +115,7 @@ chrome-extension-template/
 | `scripts/build.js` | Firefox AMO への公開予定がある場合、`{extension-id}@example.com` を実際の一意な ID に差し替える |
 | プライバシーポリシーページ | Chrome Web Store 公開に必要なため、ポリシーページを作成・公開する（GitHub Pages など） |
 
-## AI 支援開発
+## AI-Assisted Development
 
 このテンプレートは Claude Code・GitHub Copilot を使った開発を前提としています。
 
@@ -127,7 +127,7 @@ chrome-extension-template/
 
 詳細は [AI_CONTEXT.md](AI_CONTEXT.md) を参照してください。
 
-## ドキュメント索引
+## Docs
 
 | ドキュメント | 内容 |
 |---|---|
@@ -140,7 +140,7 @@ chrome-extension-template/
 | [リリースプロセス](docs/release-process.md) | Chrome Web Store への公開手順 |
 | [開発憲章](docs/dev-charter/README.md) | プロジェクト横断の開発ポリシー |
 
-## プライバシーポリシー
+## Privacy Policy
 
 Chrome Web Store への公開にはプライバシーポリシーの URL が必要です。
 このテンプレートにはホスト済みのポリシーページは含まれていないため、公開前に用意してください。
@@ -148,14 +148,14 @@ Chrome Web Store への公開にはプライバシーポリシーの URL が必�
 1. プライバシーポリシーページを作成する（GitHub Pages・Gist・自前サイトなど）。
 2. 必要であれば `manifest.json` に `"privacy_policy_url": "https://example.com/privacy-policy"` を追加する。または Chrome Web Store 提出時に URL を入力する。
 
-## リリース手順
+## Release
 
 1. 公開可能なプライバシーポリシーページを用意し、URL を控える。
 2. `manifest.json` のバージョンを更新する。
 3. `npm run build` を実行し（`dist/{name}-{version}-chrome.zip` が生成される）、Chrome Web Store にアップロードして提出時にプライバシーポリシー URL を入力する。
 4. Firefox にも公開する場合: `npm run build:firefox` を実行し、`dist/{name}-{version}-firefox.zip` を addons.mozilla.org にアップロードする。
 
-## ライセンス
+## License
 
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — 詳細は [LICENSE](LICENSE) を参照してください。
 
