@@ -4,7 +4,7 @@
 > `docs/dev-charter/` の内容をこのプロジェクト向けにコンパイルしています。
 > 日常作業では dev-charter を直接参照せず、このファイルを使用してください。
 
-## AI 向け参照順
+## AI Reference Order
 
 タスク開始時に以下の順で参照する:
 
@@ -21,7 +21,7 @@
 
 ---
 
-## プロジェクト概要
+## Project Overview
 
 - **名前:** Chrome Extension Template
 - **種別:** クローズドプロジェクト
@@ -31,7 +31,7 @@
 
 ---
 
-## ビルド・テストコマンド
+## Build & Test Commands
 
 ```sh
 npm test                    # ユニットテスト
@@ -53,7 +53,7 @@ pre-commit run --all-files  # フック全実行
 
 ---
 
-## アーキテクチャ
+## Architecture
 
 ```
 src/
@@ -68,7 +68,7 @@ src/
 
 ---
 
-## Chrome API ルール
+## Chrome API Rules
 
 - `shared/storage.js` と `shared/messaging.js` のみが Chrome API を呼び出してよい
 - `src/background/service-worker.js` では `chrome.runtime.onInstalled` 等のライフサイクルイベントを直接呼び出してよい
@@ -77,7 +77,7 @@ src/
 
 ---
 
-## コード設計原則
+## Code Design Principles
 
 - 変更範囲は必要最小限（over-engineering しない）
 - YAGNI：今必要ない機能は実装しない
@@ -92,14 +92,14 @@ src/
 
 ---
 
-## ドキュメント同期ルール
+## Document Sync Rule
 
 仕様・ルール・構成に変更が生じたとき、変更と同じ作業内で関連ドキュメントを更新する。
 対象は `docs/` 内のファイルに限らず、`AI_CONTEXT.md`・`README.md` 等のルートファイルも含む。
 
 ---
 
-## dev-charter 変更ルール
+## dev-charter Change Rules
 
 `docs/dev-charter/` 配下のファイルを**直接編集しない**。
 
@@ -109,25 +109,25 @@ src/
 
 ---
 
-## AI 協働ルール
+## AI Collaboration Rules
 
-### AI 行動原則
+### AI Behavior Principles
 - **Scope（スコープ厳守）**: 会話の主題・タスク・ゴールを AI が勝手に変更しない。話題変更はユーザーが明示するか、AI の提案をユーザーが許可した場合のみ
 - **Uncertainty（不明点の扱い）**: 重要な情報不足は質問する。軽微な不足は合理的な仮定で補い、仮定を明示する。推測で断定しない
 
-### コーディング前の確認
+### Pre-Coding Confirmation
 不明・未定の項目があれば**作業前に 1 回でまとめて**質問する。
 
 **確認必須:** ゴール（完了条件）/ 言語・FW・バージョン制約 / 新規 or 既存コード修正 / テストの要否 / 影響範囲
 
 **確認不要（既存コードに合わせて進める）:** コードスタイル / ファイル配置 / 軽微な実装詳細
 
-### エラー・デバッグ対応
+### Error & Debug Handling
 - エラー発生時は **原因分析 → 修正方針説明 → 実装** の順で進める
 - エラーログ・スタックトレースは必ず全文確認してから対応
 - 推測で修正しない（必要なら既存コードを確認）
 
-### AI ツールの役割分担
+### AI Tool Role Assignment
 
 - **使用ツール**：Claude Code、GitHub Copilot、Gemini CLI
 - **標準担当の正本**：`docs/dev-charter/AI_COLLABORATION_RULES.md` の「AI Tool Responsibilities」と「Rules for Multi-AI Usage」
@@ -135,7 +135,7 @@ src/
 
 ---
 
-## Git 運用
+## Git Workflow
 
 - Conventional Commits 形式（`feat` / `fix` / `refactor` / `docs` / `chore`）
 - 動作しないコードはコミットしない（WIP 禁止）
@@ -143,7 +143,7 @@ src/
 
 ---
 
-## セキュリティルール
+## Security Rules
 
 - API キー・パスワード・トークンをコードに書かない
 - `.env` ファイルはコミットしない（`.env.example` のみ可）
@@ -153,14 +153,14 @@ src/
 - 誤ってコミットしたシークレットは、履歴から削除した上で即座にローテーションする
 - no remote code execution・inline scripts 禁止
 
-### コードレビュー
+### Code Review
 
 - `main` に到達するコミットは `docs/dev-charter/AI_COLLABORATION_RULES.md` のレビュー経路に従って独立した確認を受ける（個人開発では実装担当と異なる AI によるレビューとオーナーの最終確認で代替できる）
 - 認証・認可・暗号化・データアクセスに関わる変更はセキュリティレビューを必須とする
 
 ---
 
-## UI ガイドライン
+## UI Guidelines
 
 詳細は [docs/ui-design.md](docs/ui-design.md) を参照。
 
@@ -171,14 +171,14 @@ src/
 
 ---
 
-## 言語ポリシー
+## Language Policy
 
 - クローズドプロジェクト → **日本語が正本**
 - `README.md` は英語（国際参照用）、`README-jp.md` が日本語正本
 - ドキュメントの冒頭（タイトルを除く）に正本・参照の宣言を記載する
 - ドキュメントを編集する際は日本語版を主として編集し、英語版をそれに合わせて更新する（英語版を独立して編集しない）
 
-### コード内の言語
+### Language in Code
 
 | 対象 | ルール |
 |------|--------|
@@ -189,7 +189,7 @@ src/
 
 ---
 
-## ローカライゼーション
+## Localization
 
 サポート言語: システム設定 / 日本語 / 英語 / 中国語 / ヒンディー語 / スペイン語 / フランス語 / ポルトガル語
 
@@ -197,7 +197,7 @@ src/
 
 ---
 
-## マネタイズ
+## Monetization
 
 Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システムは禁止。
 
@@ -220,14 +220,14 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 ---
 
-## 設計方針（Design Decisions）
+## Design Decisions
 
 - 機能モジュールは意図的に省略してテンプレートをシンプルに保つ
 - テレメトリー・フィーチャーフラグは複雑さを避けるため非搭載
 
 ---
 
-## 初期セットアップ（テンプレートから作成した直後）
+## Initial Setup (Right After Creating from the Template)
 
 テンプレートから新規プロジェクトを作成した直後に以下の手順を実行する:
 
@@ -245,7 +245,7 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 ---
 
-## 参照ドキュメント
+## Reference Docs
 
 憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
 

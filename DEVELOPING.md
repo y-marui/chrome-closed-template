@@ -52,7 +52,7 @@ pre-commit run --all-files  # run all security/quality hooks
 
 ## Code Rules
 
-1. Do not introduce new permissions without discussion — see [Permission Policy](docs/specification.md#パーミッション)
+1. Do not introduce new permissions without discussion — see [Permission Policy](docs/specification.md#permissions)
 2. Only `shared/storage.js` and `shared/messaging.js` may call Chrome APIs directly
 3. Messaging must use `shared/messaging.js`
 4. Storage must use `shared/storage.js`

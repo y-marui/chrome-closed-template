@@ -58,7 +58,7 @@ pre-commit run --all-files  # verify hooks
 npm test                    # verify tests
 ```
 
-### 3. Load extension
+### 4. Load extension
 
 Both browsers require a build first (`npm run build` builds both `stage/chrome/` and
 `stage/firefox/` at once).

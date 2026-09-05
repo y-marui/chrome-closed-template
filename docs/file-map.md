@@ -35,7 +35,7 @@ _最終更新: 2026-05-01_
 | `src/shared/message-types.js` | メッセージタイプ定数 | （依存なし） |
 | `src/shared/utils.js` | 純粋関数 | （依存なし） |
 
-## 備考
+## Notes
 
-- `src/shared/messaging.js` と `src/shared/storage.js` のみが Chrome API を呼び出す（[Chrome API ルール](../AI_CONTEXT.md#chrome-api-ルール)）
+- `src/shared/messaging.js` と `src/shared/storage.js` のみが Chrome API を呼び出す（[Chrome API Rules](../AI_CONTEXT.md#chrome-api-rules)）
 - `manifest.json` の `content_scripts.matches` が content.js の注入先を決める

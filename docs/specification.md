@@ -4,7 +4,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 このリポジトリ自体はテンプレートのため、以下はテンプレートが提供するデフォルト動作を定義します。
 実際のプロジェクトでは、このファイルを対象アプリの仕様に書き換えてください。
 
-## 機能仕様（テンプレートデフォルト）
+## Functional Specification (Template Default)
 
 | 機能 | 動作 |
 |------|------|
@@ -14,7 +14,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 | コンテンツスクリプト注入 | `https://*/*` にマッチする全ページにスクリプトを注入し、コンソールログを出力 |
 | メッセージ通信 | `messaging.js` 経由で popup/content ↔ background 間でメッセージを送受信 |
 
-## データフロー
+## Data Flow
 
 ```
 [ユーザー操作]
@@ -34,7 +34,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 [content.js] ← manifest.json の content_scripts で自動注入
 ```
 
-## ストレージ仕様
+## Storage Specification
 
 `shared/storage.js` 経由で Chrome Local Storage を使用する。
 
@@ -42,7 +42,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 |------|----|------|-----------|
 | （テンプレートではストレージ未使用） | — | — | — |
 
-## メッセージ仕様
+## Message Specification
 
 `shared/message-types.js` にメッセージタイプを定義する。
 
@@ -50,7 +50,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 |----------------|--------|--------|-----------|
 | `EXAMPLE_ACTION` | popup | background | `{}` |
 
-## パーミッション
+## Permissions
 
 `manifest.json` 参照。テンプレートデフォルトでは permissions・host_permissions ともに空（最小権限）。
 
@@ -60,7 +60,7 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 - `permissions` / `host_permissions` はできる限り空に保ち、機能に必要なものだけを追加する
 - 新しいパーミッションを追加する前に [Chrome permission warnings](https://developer.chrome.com/docs/extensions/reference/permissions-list) を確認する
 
-## セキュリティチェックリスト
+## Security Checklist
 
 - パーミッション最小化: 必要なものだけ要求する
 - `host_permissions` 最小化: `<all_urls>` のような広域パターンを避ける

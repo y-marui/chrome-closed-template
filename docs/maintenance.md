@@ -6,7 +6,7 @@
 
 ---
 
-## architecture.md を更新する
+## Update architecture.md
 
 ```
 docs/architecture.md を最新の状態に更新してください。
@@ -45,7 +45,7 @@ docs/architecture.md を最新の状態に更新してください。
 
 ---
 
-## file-map.md を更新する
+## Update file-map.md
 
 ```
 docs/file-map.md を最新の状態に更新してください。

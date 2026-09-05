@@ -33,7 +33,7 @@ Chrome 拡張機能テンプレート。background / content / popup / shared �
 
 ファイルレベルの詳細は [file-map.md](file-map.md) を参照。
 
-## 編集ガイド
+## Edit Guide
 
 **自由に編集できるファイル:**
 
@@ -44,4 +44,4 @@ Chrome 拡張機能テンプレート。background / content / popup / shared �
 **慎重に編集すべきファイル:**
 
 - `src/background/` — ここでのエラーは拡張機能全体をサイレントに壊す
-- `manifest.json` の permissions — 追加前にセキュリティレビュー必須（[specification.md のパーミッション](specification.md#パーミッション) を参照）
+- `manifest.json` の permissions — 追加前にセキュリティレビュー必須（[Permissions in specification.md](specification.md#permissions) を参照）
