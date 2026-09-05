@@ -15,7 +15,9 @@
 - **CONTRIBUTING.md** — PR・Issue ルール
 - **docs/architecture.md** — モジュール・コンポーネント構造・エントリーポイント
 - **docs/file-map.md** — ファイルレベルの依存関係（情報が足りない・古い場合は適宜探索し、追記・更新する）
-- **docs/specification.md** — 機能仕様・データフロー・パーミッションポリシー・セキュリティチェックリスト
+- **docs/specification.md** — 機能仕様・データフロー・パーミッションポリシー
+- **docs/security-checklist.md** — リリース前・コードレビュー時のセキュリティ確認項目
+- **docs/release-process.md** — バージョン更新から Chrome Web Store/Firefox AMO 提出までの手順
 - **docs/ui-design.md** — UI 設計・コンポーネント仕様
 - **docs/maintenance.md** — docs/ メンテナンス用プロンプト集
 
@@ -251,8 +253,10 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 
 - [アーキテクチャ・編集ガイド](docs/architecture.md)
 - [ファイルマップ](docs/file-map.md)
-- [機能仕様・パーミッション・セキュリティ](docs/specification.md)
+- [機能仕様・パーミッション](docs/specification.md)
+- [セキュリティチェックリスト](docs/security-checklist.md)
+- [リリースプロセス](docs/release-process.md)
 - [UI デザイン](docs/ui-design.md)
-- [プライバシーポリシー](docs/privacy-policy.md)
+- [プライバシーポリシー](README-jp.md#プライバシーポリシー)
 - [docs/ メンテナンス](docs/maintenance.md)
 - [開発憲章](docs/dev-charter/README.md)

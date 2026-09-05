@@ -135,7 +135,7 @@ chrome-extension-template/
 | [ファイルマップ](docs/file-map.md) | ファイルレベルの依存関係マップ |
 | [機能仕様](docs/specification.md) | 機能仕様・動作定義・データフロー |
 | [UI デザイン](docs/ui-design.md) | カラーパレット・アイコン選定ルール |
-| [パーミッションポリシー](docs/permission-policy.md) | Chrome 権限の追加基準 |
+| [パーミッションポリシー](docs/specification.md#パーミッション) | Chrome 権限の追加基準 |
 | [セキュリティチェックリスト](docs/security-checklist.md) | リリース前確認事項 |
 | [リリースプロセス](docs/release-process.md) | Chrome Web Store への公開手順 |
 | [開発憲章](docs/dev-charter/README.md) | プロジェクト横断の開発ポリシー |
