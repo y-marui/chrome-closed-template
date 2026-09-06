@@ -43,15 +43,14 @@ npm run build:firefox       # Firefox AMO 提出用 ZIP を dist/ に生成
 pre-commit run --all-files  # フック全実行
 ```
 
-`scripts/build.js` が esbuild で `src/` 全体を1回だけバンドルし、`manifest.json` の
-`background` 指定だけを Chrome（`service_worker`）/Firefox（`scripts` 配列 +
-`browser_specific_settings.gecko`）向けに出し分ける。`npm run build`（引数無し）は
-`build:chrome`・`build:firefox` の両方を実行し、`stage/chrome/`・`stage/firefox/` に
-それぞれ展開する（同時に両方 Load Unpacked できる）。
+ツールチェーン（esbuild によるデュアルビルド・ESLint flat config・`node --test` 等）の
+一般方針は
+[docs/dev-charter/topics/chrome-extension/CHROME_EXTENSION_DEV_ENV.md](docs/dev-charter/topics/chrome-extension/CHROME_EXTENSION_DEV_ENV.md)
+を参照。`npm run build`（引数無し）は `build:chrome`・`build:firefox` の両方を実行し、
+`stage/chrome/`・`stage/firefox/` にそれぞれ展開する（同時に両方 Load Unpacked できる）。
 
 **ローカルでの動作確認は Chrome・Firefox とも必ずビルドが必要。** プロジェクトルートを
-直接 Load Unpacked することはできない（`src/background/service-worker.js` は `import` を
-使う ES Module で、`manifest.json` はバンドル済みの plain script 前提の記述になっているため）。
+直接 Load Unpacked することはできない。
 
 ---
 
@@ -72,9 +71,11 @@ src/
 
 ## Chrome API Rules
 
-- `shared/storage.js` と `shared/messaging.js` のみが Chrome API を呼び出してよい
-- `src/background/service-worker.js` では `chrome.runtime.onInstalled` 等のライフサイクルイベントを直接呼び出してよい
-- popup・content スクリプトから Chrome API を直接呼ばない
+`chrome.*` API を一点集約するアーキテクチャの一般方針は
+[docs/dev-charter/topics/chrome-extension/CHROME_EXTENSION_DEV_ENV.md](docs/dev-charter/topics/chrome-extension/CHROME_EXTENSION_DEV_ENV.md)
+の「Architecture (Centralized Chrome API Access)」を参照（`shared/storage.js`・
+`shared/messaging.js` に集約し、popup・content からは直接呼ばない）。
+
 - `permissions` / `host_permissions` の追加前は `docs/specification.md` のパーミッション・セキュリティチェックリスト を確認する
 
 ---
@@ -259,4 +260,5 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 - [UI デザイン](docs/ui-design.md)
 - [プライバシーポリシー](README-jp.md#privacy-policy)
 - [docs/ メンテナンス](docs/maintenance.md)
+- [Chrome Extension dev-env 一般方針](docs/dev-charter/topics/chrome-extension/CHROME_EXTENSION_DEV_ENV.md)
 - [開発憲章](docs/dev-charter/README.md)
