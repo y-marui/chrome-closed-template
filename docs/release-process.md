@@ -75,14 +75,30 @@ Firefox 非対応プロジェクトではこのステップを省略する。
 
 ## 10. Git Tags
 
-提出後、リポジトリにタグを打つ。
+提出後、リポジトリにタグを打って push する。`v*` タグの push をトリガーに
+`.github/workflows/release.yml` が Chrome/Firefox 両方の ZIP をビルドし、
+チェックサムを添えて GitHub Release を自動作成する。
 
 ```bash
 git tag v{version}
 git push origin v{version}
+# GitHub Actions が ZIP をビルドし GitHub Release を作成する
 ```
+
+Actions が実行できない場合（課金・spending limit の問題等）は、同じ処理を
+ローカルから実行できる。
+
+```bash
+make release
+```
+
+`workflow_dispatch` でも同じビルドをブランチ上で試せる（タグ push でない
+ため GitHub Release の作成とバージョン一致チェックはスキップされる）。
 
 ## Notes
 
 - `dist/`・`stage/` は `.gitignore` に含まれる。リポジトリにはコミットしない
 - `npm run build`（引数無し）で Chrome・Firefox 両方を一度に生成できる
+- Git タグの push で作成される GitHub Release は、Chrome Web Store / Firefox
+  AMO への提出（ステップ 8・9）とは独立している。ストア提出の可否に関わらず
+  タグを push すれば Release は作成される

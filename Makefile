@@ -1,4 +1,4 @@
-.PHONY: help test build build-firefox update-charter
+.PHONY: help test build build-firefox release update-charter
 
 help: ## コマンド一覧を表示
 	@grep -E '^[a-zA-Z_-]+:.*##' $(MAKEFILE_LIST) \
@@ -12,6 +12,9 @@ build: ## Chrome Web Store 提出用 ZIP を dist/ に生成
 
 build-firefox: ## Firefox AMO 提出用 ZIP を dist/ に生成
 	npm run build:firefox
+
+release: ## HEADのタグをビルドし、GitHub Releaseを作成 (Actions が使えない場合のローカルフォールバック)
+	scripts/release.sh
 
 update-charter: ## dev-charter を最新版に更新 (git subtree pull)
 	curl -fsSL https://raw.githubusercontent.com/y-marui/dev-charter/main/scripts/install.sh | CHARTER_UPDATE_ONLY=1 bash
