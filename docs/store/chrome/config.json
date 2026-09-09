@@ -1,0 +1,14 @@
+{
+  "category": "{Chrome Web Store のカテゴリ}",
+  "support_url": "https://github.com/{user}/{repo}/issues",
+  "homepage_url": "https://github.com/{user}/{repo}",
+  "privacy_policy_url": "{privacy_policy_url}",
+  "video_url": "",
+  "_notes": {
+    "category_options": {
+      "仕事効率化": ["コミュニケーション", "ツール", "デベロッパー ツール", "ワークフローと計画", "教育"],
+      "ライフスタイル": ["アート＆デザイン", "エンタテイメント", "ゲーム", "ショッピング", "ソーシャル ネットワーク", "ニュース＆天気", "家関係", "楽しみ", "健康な暮らし", "旅行"],
+      "あなただけの Chrome": ["プライバシー&セキュリティ", "ユーザー補助機能", "機能と UI"]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "categories": ["{AMO のカテゴリ slug}"],
+  "keywords": ["{keyword1}", "{keyword2}"],
+  "support_url": "https://github.com/{user}/{repo}/issues",
+  "homepage_url": "https://github.com/{user}/{repo}",
+  "privacy_policy_url": "{privacy_policy_url}",
+  "video_url": "",
+  "_notes": {
+    "categories_reference": "https://addons.mozilla.org/en-US/firefox/categories/"
+  }
+}

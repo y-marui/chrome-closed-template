@@ -18,6 +18,7 @@
 - **docs/specification.md** — 機能仕様・データフロー・パーミッションポリシー
 - **docs/security-checklist.md** — リリース前・コードレビュー時のセキュリティ確認項目
 - **docs/release-process.md** — バージョン更新から Chrome Web Store/Firefox AMO 提出までの手順
+- **docs/store/README.md** — ストア掲載素材（説明文・権限使用理由・スクリーンショット）の管理ガイド
 - **docs/ui-design.md** — UI 設計・コンポーネント仕様
 - **docs/maintenance.md** — docs/ メンテナンス用プロンプト集
 
@@ -65,6 +66,8 @@ src/
     messaging.js  Chrome API ラッパー（メッセージ送受信）
     storage.js    Chrome API ラッパー（ローカルストレージ）
     utils.js      純粋関数（Chrome API 非依存）
+docs/store/     ストア掲載素材（説明文・権限使用理由・スクリーンショット。詳細は docs/store/README.md）
+assets/archive/ アイコンデザイン旧版の保管（参照専用。ストア掲載素材は含まない）
 ```
 
 ---
@@ -245,6 +248,10 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
    - `[BMC_USERNAME]` — Buy Me a Coffee ユーザー名（`.github/FUNDING.yml`・サポートバッジ）
 4. **Firefox 提出用 ID を設定する**（Firefox AMO への提出予定がある場合）:
    - `scripts/build.js` の `{extension-id}@example.com` を実際の一意な ID（例: `my-extension@example.com`）に置換する
+5. **ストア掲載素材のプレースホルダを置換する**（`docs/store/`）:
+   - Firefox 非対応の場合は `docs/store/firefox/` ごと削除する
+   - `chrome/config.json`・`firefox/config.json` の `{user}`/`{repo}`/`{privacy_policy_url}` 等を置換する
+   - `chrome/ja・en/description.md`・`chrome/permissions.md` を実際の内容に書き換える
 
 ---
 
@@ -257,6 +264,7 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 - [機能仕様・パーミッション](docs/specification.md)
 - [セキュリティチェックリスト](docs/security-checklist.md)
 - [リリースプロセス](docs/release-process.md)
+- [ストア掲載素材](docs/store/README.md)
 - [UI デザイン](docs/ui-design.md)
 - [プライバシーポリシー](README-jp.md#privacy-policy)
 - [docs/ メンテナンス](docs/maintenance.md)
