@@ -27,7 +27,8 @@ npm test
 
 ## 4. Review Security Checklist
 
-[docs/security-checklist.md](security-checklist.md) の全項目を確認する。
+[docs/security-checklist.md](security-checklist.md) の全項目を確認する。manifest.json の
+permissions を変更した場合は [docs/store/chrome/permissions.md](store/chrome/README.md) も更新する。
 
 ## 5. Build
 
@@ -59,7 +60,7 @@ ZIP に含まれてはいけないもの: バンドル前の `src/`・`test/`・
 1. [Chrome Web Store デベロッパーダッシュボード](https://chrome.google.com/webstore/devconsole/) にアクセスする
 2. 対象の拡張機能を選択する
 3. 「パッケージ」→ 新しいパッケージをアップロードで `dist/{name}-{version}-chrome.zip` をアップロードする
-4. ストアの説明・スクリーンショット等に変更があれば `docs/store/` の内容を反映して更新する
+4. ストアの説明・スクリーンショット等に変更があれば `docs/store/chrome/` の内容を反映して更新する
 5. 「審査のために送信」を選択する
 
 審査には数日〜1 週間程度かかる場合がある。審査中に別バージョンを提出すると審査がリセットされる
