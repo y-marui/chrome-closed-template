@@ -40,6 +40,7 @@ if [[ "$TAG_VERSION" != "$MANIFEST_VERSION" || "$TAG_VERSION" != "$PKG_VERSION" 
 fi
 
 echo "→ Building $TAG"
+rm -rf dist
 npm run build
 
 echo "→ Checksums"

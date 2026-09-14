@@ -8,3 +8,5 @@
 - Updated `docs/dev-charter/` to include the new `chrome-extension` topic (`CHROME_EXTENSION_DEV_ENV.md`). `AI_CONTEXT.md`'s Build & Test Commands / Chrome API Rules sections now reference it instead of restating the general dev-env policy (y-marui/dev-charter#133).
 
 ### Fixed
+
+- `scripts/release.sh` が `dist/` に残っていた旧バージョンの zip・checksums を GitHub Release に添付してしまう問題を修正。ビルド前に `dist/` を削除するように変更 (Refs y-marui/chrome-library-check-for-zotero#74)
