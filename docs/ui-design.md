@@ -15,6 +15,15 @@
 
 Unicode 絵文字禁止（UI パーツ）。
 
+## Exceptions to the guideline
+
+dev-charter の `UI_GUIDELINES.md`（Exceptions）に従う。このプロジェクトで使っている例外:
+
+- **言語選択ボタンの国旗（Unicode 絵文字）:** Material Symbols に国別の旗がないため、言語名の前に国旗を付ける。国旗は言語の発祥国で選ぶ（英語 🇬🇧、ポルトガル語 🇵🇹 など）。ほかの UI パーツでは絵文字を使わない。
+- **テーマボタンのプレビュー色:** Light は白地・`#4e454a`、Dark はチャコール（`#2b2b2d`）地・`#bab1b6`（既定の文字色の明度を反転）。ページ全体のダーク背景は黒 `#000000` のまま。
+- **他サイトに注入する UI（content script）のアイコン:** アイコンフォントが使えないため、`src/shared/material-icons.js` から Material Symbols の公式 SVG をインラインで描画する。
+- **ダークの配色:** アクセント・状態色は、ライト色の色相・彩度を保って明度だけを反転した値（`popup-common.css`）。ネイティブ部品がテーマに追従するよう `color-scheme` を設定する。
+
 ## Icons
 
 | ライブラリ | 用途 |

@@ -3,12 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Extension</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="popup-common.css">
 <link rel="stylesheet" href="popup.css">
 </head>
 <body>
 
-<h1>Extension</h1>
-<button id="actionBtn">Click</button>
+<div class="header">
+  <img src="../../public/icons/icon48.png" alt="">
+  <div>
+    <div class="header-title">Extension</div>
+    <div class="header-desc">Description</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="banner gray">
+    <span class="ms">info</span>
+    <span class="banner-text gray">Status message</span>
+  </div>
+  <button id="actionBtn" class="btn">Click</button>
+</div>
+
+<div class="footer">
+    <a class="footer-btn" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer" title="Homepage" aria-label="Homepage"><span class="ms">home</span></a>
+    <a class="footer-btn" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer" title="Privacy Policy" aria-label="Privacy Policy"><span class="ms">verified_user</span></a>
+    <a class="footer-btn" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer" title="Terms of Service" aria-label="Terms of Service"><span class="ms">description</span></a>
+    <a class="footer-btn" href="https://www.buymeacoffee.com/[BMC_USERNAME]" target="_blank" rel="noopener noreferrer" title="Buy Me a Coffee" aria-label="Buy Me a Coffee"><span class="ms">local_cafe</span></a>
+    <a class="footer-btn" href="https://github.com/sponsors/[USERNAME]" target="_blank" rel="noopener noreferrer" title="GitHub Sponsors" aria-label="GitHub Sponsors"><span class="ms">favorite</span></a>
+</div>
 
 <script src="popup.js"></script>
 

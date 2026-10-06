@@ -6,10 +6,11 @@
   "action": {
     "default_popup": "src/popup/popup.html"
   },
+  "options_page": "src/options/options.html",
   "background": {
     "service_worker": "src/background/service-worker.js"
   },
-  "permissions": [],
+  "permissions": ["storage"],
   "host_permissions": [],
   "icons": {
     "16": "public/icons/icon16.png",
