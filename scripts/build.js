@@ -54,6 +54,7 @@ const STATIC_INCLUDE = [
   'manifest.json',
   'public',
   'src/popup/popup.html',
+  'src/popup/popup-common.css',
   'src/popup/popup.css',
   'LICENSE',
 ];

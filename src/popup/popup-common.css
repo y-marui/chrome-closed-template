@@ -1,0 +1,383 @@
+/*
+ * Shared popup spec for chrome-* extensions: palette, layout, header, footer and
+ * content components (section, banner, button, toggle).
+ * Keep this file identical across repositories (copy from chrome-closed-template).
+ *
+ * Theme: light by default; dark when <html data-theme="dark">. Pages that never set
+ * data-theme follow prefers-color-scheme. Pages that manage the theme themselves
+ * must always set data-theme to "light" or "dark".
+ */
+
+:root {
+  --bg: #ffffff;
+  --bg2: #f5f2f4;
+  --bg3: #ebe6e9;
+  --border: rgba(78, 69, 74, 0.13);
+  --text: #4e454a;
+  --text-em: #000000;
+  --text2: #7a6f74;
+  --text3: #a89fa4;
+  --accent: #1a6bbf;
+  --accent-bg: #eaf1fb;
+  --accent-bd: rgba(26, 107, 191, 0.22);
+  --green: #1a7a3c;
+  --green-bg: #e8f7ee;
+  --green-bd: rgba(26, 122, 60, 0.22);
+  --red: #b91c1c;
+  --red-bg: #fef2f2;
+  --red-bd: rgba(185, 28, 28, 0.18);
+  --orange: #b45309;
+  --orange-bg: #fffbeb;
+  --orange-bd: rgba(180, 83, 9, 0.2);
+  --gray-bg: #f0ecee;
+  --gray-bd: rgba(78, 69, 74, 0.12);
+  --hover: rgba(78, 69, 74, 0.06);
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --bg2: #1a1a1a;
+  --bg3: #2a2a2a;
+  --border: rgba(186, 177, 182, 0.13);
+  --text: #bab1b6;
+  --text-em: #ffffff;
+  --text2: #8a8188;
+  --text3: #5a5558;
+  --accent: #4da3ff;
+  --accent-bg: rgba(77, 163, 255, 0.1);
+  --accent-bd: rgba(77, 163, 255, 0.25);
+  --green: #34c068;
+  --green-bg: rgba(52, 192, 104, 0.1);
+  --green-bd: rgba(52, 192, 104, 0.25);
+  --red: #ff5a5a;
+  --red-bg: rgba(255, 90, 90, 0.1);
+  --red-bd: rgba(255, 90, 90, 0.22);
+  --orange: #ffb340;
+  --orange-bg: rgba(255, 179, 64, 0.1);
+  --orange-bd: rgba(255, 179, 64, 0.22);
+  --gray-bg: rgba(186, 177, 182, 0.07);
+  --gray-bd: rgba(186, 177, 182, 0.13);
+  --hover: rgba(186, 177, 182, 0.07);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #000000;
+    --bg2: #1a1a1a;
+    --bg3: #2a2a2a;
+    --border: rgba(186, 177, 182, 0.13);
+    --text: #bab1b6;
+    --text-em: #ffffff;
+    --text2: #8a8188;
+    --text3: #5a5558;
+    --accent: #4da3ff;
+    --accent-bg: rgba(77, 163, 255, 0.1);
+    --accent-bd: rgba(77, 163, 255, 0.25);
+    --green: #34c068;
+    --green-bg: rgba(52, 192, 104, 0.1);
+    --green-bd: rgba(52, 192, 104, 0.25);
+    --red: #ff5a5a;
+    --red-bg: rgba(255, 90, 90, 0.1);
+    --red-bd: rgba(255, 90, 90, 0.22);
+    --orange: #ffb340;
+    --orange-bg: rgba(255, 179, 64, 0.1);
+    --orange-bd: rgba(255, 179, 64, 0.22);
+    --gray-bg: rgba(186, 177, 182, 0.07);
+    --gray-bd: rgba(186, 177, 182, 0.13);
+    --hover: rgba(186, 177, 182, 0.07);
+  }
+}
+
+:root {
+  /* Popup width */
+  --popup-width: 310px;
+
+  /* Font scale */
+  --fs-caption: 10px; /* header description, meta, badges */
+  --fs-small: 11px;   /* secondary text, buttons, labels */
+  --fs-body: 12px;    /* primary UI text */
+  --fs-base: 13px;    /* body default */
+  --fs-title: 14px;   /* header title */
+
+  /* Icon scale */
+  --icon-sm: 16px;
+  --icon-md: 18px;
+  --icon-lg: 22px;
+
+  /* Header / footer */
+  --header-height: 56px;
+  --header-icon: 32px;
+  --footer-height: 44px;
+  --footer-btn: 32px;
+
+  /* Buttons and inputs */
+  --btn-height: 28px;
+  --btn-radius: 7px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  width: var(--popup-width);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: var(--fs-base);
+  line-height: 1.45;
+}
+
+/* Material Symbols */
+.ms {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-sm);
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--header-height);
+  padding: 0 13px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border);
+}
+
+.header > img {
+  width: var(--header-icon);
+  height: var(--header-icon);
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-em);
+}
+
+.header-desc {
+  font-size: var(--fs-caption);
+  line-height: 1.2;
+  margin-top: 2px;
+  color: var(--text3);
+  letter-spacing: 0.2px;
+}
+
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  height: var(--footer-height);
+  padding: 0 9px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--border);
+}
+
+.footer-btn {
+  width: var(--footer-btn);
+  height: var(--footer-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  color: var(--text3);
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+
+.footer-btn:hover {
+  background: var(--hover);
+  color: var(--text2);
+}
+
+.footer-btn .ms {
+  font-size: var(--icon-lg);
+}
+
+/* Section */
+.section {
+  padding: 9px 13px;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+/* Banner: status line. Variants: green / red / orange / gray */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+}
+
+.banner .ms {
+  font-size: var(--icon-sm);
+  flex-shrink: 0;
+}
+
+.banner.green  { background: var(--green-bg);  border-color: var(--green-bd); }
+.banner.red    { background: var(--red-bg);    border-color: var(--red-bd); }
+.banner.orange { background: var(--orange-bg); border-color: var(--orange-bd); }
+.banner.gray   { background: var(--gray-bg);   border-color: var(--gray-bd); }
+
+.banner-text {
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.banner-text.green  { color: var(--green); }
+.banner-text.red    { color: var(--red); }
+.banner-text.orange { color: var(--orange); }
+.banner-text.gray   { color: var(--text2); }
+
+/* Secondary text */
+.text-meta {
+  font-size: var(--fs-small);
+  color: var(--text2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-error {
+  font-size: var(--fs-small);
+  color: var(--red);
+}
+
+.text-error:empty {
+  display: none;
+}
+
+/* Button: full width by default, side by side inside .btn-row */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  min-height: var(--btn-height);
+  padding: 0 11px;
+  margin-top: 6px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--text2);
+  transition: background 0.1s, color 0.1s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--bg3);
+  color: var(--text-em);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.btn .ms {
+  font-size: 14px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn-row .btn {
+  flex: 1;
+  width: auto;
+  margin-top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Setting row with toggle switch */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.setting-row + .setting-row {
+  margin-top: 8px;
+}
+
+.setting-label {
+  font-size: var(--fs-small);
+  color: var(--text2);
+}
+
+.toggle {
+  position: relative;
+  width: 36px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--bg3);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform 0.18s;
+}
+
+.toggle input:checked ~ .toggle-track {
+  background: var(--accent);
+}
+
+.toggle input:checked ~ .toggle-track .toggle-thumb {
+  transform: translateX(15px);
+}
