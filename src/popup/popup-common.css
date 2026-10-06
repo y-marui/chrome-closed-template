@@ -196,7 +196,7 @@ body {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
 }
 
 /* Status dot in the header: the tooltip is the `title` attribute */
