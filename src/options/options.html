@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Extension – Settings</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="../popup/popup-common.css">
+<link rel="stylesheet" href="options-common.css">
+</head>
+<body>
+<div class="layout">
+
+  <nav class="sidebar">
+    <a class="header" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer" title="Homepage">
+      <img src="../../public/icons/icon48.png" alt="">
+      <div>
+        <div class="header-title">Extension</div>
+        <div class="header-desc">Description</div>
+      </div>
+    </a>
+    <div class="sidebar-nav">
+      <div class="nav-item active" data-page="general"><span class="ms">tune</span><span>General</span></div>
+      <div class="nav-item" data-page="changelog"><span class="ms">history</span><span>Changelog</span></div>
+      <a class="nav-item" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer"><span class="ms">verified_user</span><span >Privacy Policy</span><span class="ms nav-ext">open_in_new</span></a>
+      <a class="nav-item" href="https://github.com/y-marui/chrome-closed-template" target="_blank" rel="noopener noreferrer"><span class="ms">description</span><span >Terms of Service</span><span class="ms nav-ext">open_in_new</span></a>
+    </div>
+    <div class="sidebar-version" data-version></div>
+    <div class="sidebar-support">
+      <div class="support-msg">If it's helpful, I'd love your support!</div>
+      <a href="https://www.buymeacoffee.com/[BMC_USERNAME]" target="_blank" rel="noopener noreferrer"><img class="bmc-img" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"></a>
+      <a class="sponsor-btn" href="https://github.com/sponsors/[USERNAME]" target="_blank" rel="noopener noreferrer"><span class="ms">favorite</span>Sponsor</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div id="page-general" class="page active">
+      <h2 class="page-title">General</h2>
+      <div class="card-title"><span class="ms">tune</span>Behavior</div>
+      <div class="card">
+        <div class="setting-row">
+          <div class="setting-info">
+            <div class="setting-name" id="lblExample">Example setting</div>
+            <div class="setting-sub">Describe what this setting does</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="toggleExample" aria-labelledby="lblExample">
+            <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-changelog" class="page">
+      <h2 class="page-title">Changelog</h2>
+      <div class="card-title"><span class="ms">history</span>Release history</div>
+      <div class="card" id="changelogList"></div>
+    </div>
+  </main>
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>

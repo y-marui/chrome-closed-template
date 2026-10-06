@@ -52,3 +52,23 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
 - Material Symbols Outlined is loaded from Google Fonts in the page `<head>`.
 - Links: `https://y-marui.github.io/y-marui/products/<repo>/` (`privacy/`, `terms/`). Until those pages
   exist, link to the repository page. Sponsor links use the same values as the README.
+
+## Options page
+
+Sidebar + main layout. Files: `src/options/options-common.css` (layout, loaded after
+`popup-common.css`) and `src/shared/options-shell.js` (`initOptionsNav`, `showVersion`,
+`renderChangelog`). Both are identical across repositories; add them to `STATIC_INCLUDE`.
+`src/options/options.html` in this template is the reference markup.
+
+- Sidebar (240px), top to bottom:
+  - `a.header` (same as the popup header, linked to the homepage);
+  - `.sidebar-nav`: `.nav-item[data-page]` tabs, then external links (Privacy Policy, Terms of Service) as
+    `a.nav-item` with a trailing `.nav-ext` icon;
+  - `.sidebar-version[data-version]` (filled from `manifest.version`);
+  - `.sidebar-support`: support message, Buy Me a Coffee banner (`.bmc-img`) and a GitHub Sponsors `.sponsor-btn`.
+    GitHub has no banner image; the button is plain CSS (an official iframe exists at
+    `https://github.com/sponsors/<user>/button` but it loads a github.com page and ignores dark mode).
+- Main: one `.page#page-<name>` per nav item; page title `.page-title`, sections as `.card-title` + `.card`.
+- Tabs: every extension has **General** (all settings) and **Changelog** (release history). Extensions with many
+  settings may split General into several tabs, but Changelog is always last.
+- Changelog data: `{version, date, items: [{tag, desc}]}` with tags `added`, `fixed`, `improved`, `changed`, `chore`.

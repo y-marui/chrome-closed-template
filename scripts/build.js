@@ -46,6 +46,7 @@ const name     = pkg.name;
 const ENTRY_POINTS = [
   'src/background/service-worker.js',
   'src/popup/popup.js',
+  'src/options/options.js',
   'src/content/content.js',
 ];
 
@@ -56,6 +57,8 @@ const STATIC_INCLUDE = [
   'src/popup/popup.html',
   'src/popup/popup-common.css',
   'src/popup/popup.css',
+  'src/options/options.html',
+  'src/options/options-common.css',
   'LICENSE',
 ];
 
