@@ -59,7 +59,9 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
     `chrome.runtime.openOptionsPage()`) as the last item of `.header-right`.
 - Footer: `.footer` > `.footer-btn` links, right-aligned, icon only (title/aria-label set), in this order:
   Homepage (`home`), Privacy Policy (`verified_user`), Terms of Service (`description`),
-  Buy Me a Coffee (`local_cafe`), GitHub Sponsors (`favorite`).
+  Buy Me a Coffee (`local_cafe`), GitHub Sponsors (`favorite`). The two support buttons carry a hint
+  (`title` and `aria-label`, `supportBmc` / `supportSponsors`) that names the service, e.g.
+  "If it's helpful, I'd love your support via Buy Me a Coffee!".
 - Material Symbols Outlined is loaded from Google Fonts in the page `<head>`.
 - Links: `https://y-marui.github.io/y-marui/products/<repo>/` (`privacy/`, `terms/`). Until those pages
   exist, link to the repository page. Sponsor links use the same values as the README.
@@ -76,8 +78,10 @@ Sidebar + main layout. Files: `src/options/options-common.css` (layout, loaded a
   - `.sidebar-nav`: `.nav-item[data-page]` tabs, then external links (Privacy Policy, Terms of Service) as
     `a.nav-item` with a trailing `.nav-ext` icon;
   - `.sidebar-version[data-app-version]` ("<extension name> v<manifest version>");
-  - `.sidebar-support`: support message (`supportMsg`: "If it's helpful, I'd love your support!" in each language,
-    followed by the Material `coffee` icon), Buy Me a Coffee banner (`.bmc-img`) and a GitHub Sponsors `.sponsor-btn`.
+  - `.sidebar-support` > `.support-links` holds two `.support-item`s, each a hint message above its button:
+    `supportBmc` ("If it's helpful, I'd love your support via Buy Me a Coffee!" in each language, followed by the
+    Material `coffee` icon) above the Buy Me a Coffee banner (`.bmc-img`), and `supportSponsors` (same wording with
+    GitHub Sponsors, followed by a pink filled `favorite` icon) above the GitHub Sponsors `.sponsor-btn`.
     GitHub has no banner image; the button is plain CSS (an official iframe exists at
     `https://github.com/sponsors/<user>/button` but it loads a github.com page and ignores dark mode).
 - Main: one `.page#page-<name>` per nav item; page title `.page-title`, sections as `.card-title` + `.card`.
