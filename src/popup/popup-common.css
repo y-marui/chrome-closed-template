@@ -201,13 +201,18 @@ body {
 
 /* Status dot in the header: the tooltip is the `title` attribute */
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--text3);
   cursor: default;
   transition: background 0.2s;
+}
+
+/* Occupies the same 26px slot as .header-icon-btn so the items are evenly spaced */
+.header-right > .status-dot {
+  margin: 0 8px;
 }
 
 .status-dot.green  { background: var(--green); }
