@@ -6,4 +6,6 @@ if (actionBtn) {
   });
 }
 
+document.getElementById("btnSettings")?.addEventListener("click", () => chrome.runtime.openOptionsPage());
+
 initTheme();

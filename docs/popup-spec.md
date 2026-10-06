@@ -45,7 +45,18 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
 
 ## Markup
 
-- Header: `.header` > `img`, `.header-title`, `.header-desc`, optional `.header-right`.
+- Header: `.header` > `img`, `.header-title`, `.header-desc`, `.header-right` (optional on the popup, see below).
+  - The title is the extension's display name and the description is a short English tagline. Both are
+    **fixed English text, never localized** (no `data-i18n`, no `_locales` key), and identical in the popup and in
+    the options sidebar header. Do not set them from JS.
+  - Actions in the header (the settings gear, mode indicators) go in `.header-right` as
+    `button.header-icon-btn` > `.ms`, with `title` / `aria-label` (localized). Do not restyle them per extension:
+    the button size, `--text3` colour, hover and `--icon-md` icon come from `popup-common.css`.
+  - A status indicator is `.status-dot` (10px, with an 8px side margin so it takes the same 26px slot as an icon button) as the first item of `.header-right`, with colour classes
+    `green` (ok), `accent` (active), `orange` (warning) and `red` (error / blocking); no class means idle (grey).
+    Its tooltip is the native `title` attribute (localized); do not build custom tooltips.
+  - A popup whose settings live on the options page must have a settings gear (`settings` icon,
+    `chrome.runtime.openOptionsPage()`) as the last item of `.header-right`.
 - Footer: `.footer` > `.footer-btn` links, right-aligned, icon only (title/aria-label set), in this order:
   Homepage (`home`), Privacy Policy (`verified_user`), Terms of Service (`description`),
   Buy Me a Coffee (`local_cafe`), GitHub Sponsors (`favorite`).
@@ -85,6 +96,11 @@ color `#4e454a` with lightness inverted (`#bab1b6`). Do not put `data-theme` on 
 Extensions without their own theme setting use `src/shared/theme.js` (`initTheme()` in every page,
 `bindThemeButtons()` on the Appearance page); the preference is stored in `chrome.storage.local` under `theme`
 and needs the `storage` permission. The language selector is only offered by localized extensions.
+
+The language buttons are always in this order: System, 日本語, English, 简体中文, हिन्दी, Español, Français, Português
+(the order of dev-charter `LOCALIZATION_POLICY.md`). System is `<span class="ms">language</span>` + the localized
+"System" label; every other button is the flag of the language's country of origin + its endonym, not translated
+(Hindi is `हिन्दी`). The flags are the only emoji allowed in the UI.
 
 ### Main area components
 

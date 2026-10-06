@@ -196,7 +196,53 @@ body {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 2px;
+}
+
+/* Status dot in the header: the tooltip is the `title` attribute */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--text3);
+  cursor: default;
+  transition: background 0.2s;
+}
+
+/* Occupies the same 26px slot as .header-icon-btn so the items are evenly spaced */
+.header-right > .status-dot {
+  margin: 0 8px;
+}
+
+.status-dot.green  { background: var(--green); }
+.status-dot.accent { background: var(--accent); }
+.status-dot.orange { background: var(--orange); }
+.status-dot.red    { background: var(--red); }
+
+/* Icon button in the header (e.g. settings gear) */
+.header-icon-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.header-icon-btn:hover {
+  background: var(--hover);
+  color: var(--text2);
+}
+
+.header-icon-btn .ms {
+  font-size: var(--icon-md);
 }
 
 /* Footer */
