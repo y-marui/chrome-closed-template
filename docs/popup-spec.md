@@ -64,11 +64,31 @@ Sidebar + main layout. Files: `src/options/options-common.css` (layout, loaded a
   - `a.header` (same as the popup header, linked to the homepage);
   - `.sidebar-nav`: `.nav-item[data-page]` tabs, then external links (Privacy Policy, Terms of Service) as
     `a.nav-item` with a trailing `.nav-ext` icon;
-  - `.sidebar-version[data-version]` (filled from `manifest.version`);
+  - `.sidebar-version[data-app-version]` ("<extension name> v<manifest version>");
   - `.sidebar-support`: support message, Buy Me a Coffee banner (`.bmc-img`) and a GitHub Sponsors `.sponsor-btn`.
     GitHub has no banner image; the button is plain CSS (an official iframe exists at
     `https://github.com/sponsors/<user>/button` but it loads a github.com page and ignores dark mode).
 - Main: one `.page#page-<name>` per nav item; page title `.page-title`, sections as `.card-title` + `.card`.
-- Tabs: every extension has **General** (all settings) and **Changelog** (release history). Extensions with many
+- Tabs: every extension has **General** (settings), **Appearance** (theme, and language where the extension is localized) and **Changelog** (release history). Extensions with many
   settings may split General into several tabs, but Changelog is always last.
 - Changelog data: `{version, date, items: [{tag, desc}]}` with tags `added`, `fixed`, `improved`, `changed`, `chore`.
+
+### Appearance tab
+
+Theme buttons (`.theme-btns` / `.theme-btn[data-theme-value]`) and language buttons (`.lang-btns` / `.lang-btn`)
+come from `options-common.css`. The Light and Dark buttons are always rendered as previews with fixed colors
+(`--preview-light-*`, `--preview-dark-*`): the dark fill is charcoal (`#2b2b2d`) and its text is the default text
+color `#4e454a` with lightness inverted (`#bab1b6`). Do not put `data-theme` on the buttons themselves, because
+`[data-theme="dark"]` re-themes any element that carries it.
+
+Extensions without their own theme setting use `src/shared/theme.js` (`initTheme()` in every page,
+`bindThemeButtons()` on the Appearance page); the preference is stored in `chrome.storage.local` under `theme`
+and needs the `storage` permission. The language selector is only offered by localized extensions.
+
+### Main area components
+
+Options pages reuse the popup palette and these classes: `.page-title`, `.card-title` (placed above its `.card`),
+`.card` (rows) or `.card card-pad` (free-form content), `.setting-row` / `.setting-info` / `.setting-name` /
+`.setting-sub`, `.toggle`, `.btn` (`.btn-primary` for the main action), `.field`. Inputs and choice buttons are
+28px high (`--btn-height`) with 7px radius. Monospace text (ids, domains, times) uses `--font-mono`; no web fonts
+other than Material Symbols are loaded.

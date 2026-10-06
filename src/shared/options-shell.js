@@ -19,11 +19,18 @@ export function initOptionsNav(onChange) {
   items.forEach((el) => el.addEventListener("click", () => select(el.dataset.page)));
 }
 
-/** Fill every `[data-version]` element with "v<manifest version>". */
+/**
+ * Fill version labels from the manifest:
+ * `[data-version]` -> "v1.2.3", `[data-app-version]` -> "<sidebar title> v1.2.3".
+ */
 export function showVersion() {
-  const version = chrome.runtime.getManifest().version;
+  const version = `v${chrome.runtime.getManifest().version}`;
+  const title = document.querySelector(".sidebar .header-title")?.textContent?.trim() ?? "";
   document.querySelectorAll("[data-version]").forEach((el) => {
-    el.textContent = `v${version}`;
+    el.textContent = version;
+  });
+  document.querySelectorAll("[data-app-version]").forEach((el) => {
+    el.textContent = title ? `${title} ${version}` : version;
   });
 }
 

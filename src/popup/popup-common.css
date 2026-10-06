@@ -99,6 +99,9 @@
   --fs-base: 13px;    /* body default */
   --fs-title: 14px;   /* header title */
 
+  /* Monospace (ids, domains, times) */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
   /* Icon scale */
   --icon-sm: 16px;
   --icon-md: 18px;

@@ -63,6 +63,7 @@ body {
 }
 
 .sidebar-version {
+  line-height: 1.4;
   padding: 8px 18px;
   font-size: var(--fs-caption);
   color: var(--text3);
@@ -222,12 +223,33 @@ body {
 .changelog-tag-changed,
 .changelog-tag-chore    { background: var(--bg3);       color: var(--text2);  border: 1px solid var(--border); }
 
-/* Controls inside a setting row */
-.card .btn {
+/* Buttons in the main area keep their natural width */
+.main .btn {
   width: auto;
   margin-top: 0;
   padding: 0 14px;
   flex-shrink: 0;
+}
+
+.main .btn-row .btn {
+  flex: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent);
+  color: #ffffff;
+  opacity: 0.88;
+}
+
+/* Card whose content is free-form (inputs, tags) instead of setting rows */
+.card-pad {
+  padding: 14px 16px;
 }
 
 .setting-actions {
@@ -331,4 +353,83 @@ a.nav-item {
 .sponsor-btn .ms {
   color: #bf3989;
   font-variation-settings: "FILL" 1;
+}
+
+/* Appearance: theme and language buttons */
+:root {
+  /* Theme button previews are fixed regardless of the active theme.
+     Dark preview text is the default text color (#4e454a) with lightness inverted. */
+  --preview-light-bg: #ffffff;
+  --preview-light-text: #4e454a;
+  --preview-dark-bg: #2b2b2d;
+  --preview-dark-text: #bab1b6;
+}
+
+.theme-btns,
+.lang-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 14px 16px;
+}
+
+.theme-btn,
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text2);
+  font-family: inherit;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.theme-btn {
+  border-radius: var(--btn-radius);
+}
+
+.lang-btn {
+  border-radius: 20px;
+}
+
+.theme-btn .ms {
+  font-size: var(--icon-sm);
+}
+
+.theme-btn[data-theme-value="light"] {
+  background: var(--preview-light-bg);
+  color: var(--preview-light-text);
+}
+
+.theme-btn[data-theme-value="dark"] {
+  background: var(--preview-dark-bg);
+  border-color: var(--preview-dark-bg);
+  color: var(--preview-dark-text);
+}
+
+.theme-btn:hover:not(.active),
+.lang-btn:hover:not(.active) {
+  border-color: var(--accent-bd);
+}
+
+.theme-btn.active,
+.lang-btn.active {
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.lang-btn.active {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.theme-btn[data-theme-value="system"].active {
+  background: var(--accent-bg);
+  color: var(--accent);
 }
