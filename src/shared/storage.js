@@ -15,3 +15,13 @@ export async function get(key) {
 export async function set(key, value) {
   await chrome.storage.local.set({ [key]: value });
 }
+
+/**
+ * @param {string} key
+ * @param {() => void} callback called whenever `key` changes in local storage
+ */
+export function onChange(key, callback) {
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === "local" && key in changes) callback();
+  });
+}

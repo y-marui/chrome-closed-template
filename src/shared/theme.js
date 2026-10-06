@@ -2,18 +2,21 @@
  * Theme preference (light / dark / system) shared by the popup and options page.
  * Sets <html data-theme="light|dark"> as popup-common.css expects.
  * Keep this file identical across chrome-* repositories that have no theme setting of their own.
+ * Storage goes through shared/storage.js (the Chrome API wrapper).
  */
+
+import { get, set, onChange } from "./storage.js";
 
 const KEY = "theme";
 const THEMES = ["light", "dark", "system"];
 
 export async function getTheme() {
-  const stored = await chrome.storage.local.get(KEY);
-  return THEMES.includes(stored[KEY]) ? stored[KEY] : "system";
+  const stored = await get(KEY);
+  return THEMES.includes(stored) ? stored : "system";
 }
 
 export async function setTheme(theme) {
-  await chrome.storage.local.set({ [KEY]: theme });
+  await set(KEY, theme);
 }
 
 export function applyTheme(theme) {
@@ -32,11 +35,9 @@ export async function initTheme() {
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
     if (theme === "system") applyTheme("system");
   });
-  chrome.storage.onChanged.addListener((changes, area) => {
-    if (area === "local" && changes[KEY]) {
-      theme = THEMES.includes(changes[KEY].newValue) ? changes[KEY].newValue : "system";
-      applyTheme(theme);
-    }
+  onChange(KEY, async () => {
+    theme = await getTheme();
+    applyTheme(theme);
   });
   return theme;
 }
