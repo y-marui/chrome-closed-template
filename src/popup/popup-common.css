@@ -199,6 +199,22 @@ body {
   gap: 6px;
 }
 
+/* Status dot in the header: the tooltip is the `title` attribute */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--text3);
+  cursor: default;
+  transition: background 0.2s;
+}
+
+.status-dot.green  { background: var(--green); }
+.status-dot.accent { background: var(--accent); }
+.status-dot.orange { background: var(--orange); }
+.status-dot.red    { background: var(--red); }
+
 /* Icon button in the header (e.g. settings gear) */
 .header-icon-btn {
   width: 26px;

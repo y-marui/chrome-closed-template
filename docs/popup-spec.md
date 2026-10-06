@@ -52,6 +52,9 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
   - Actions in the header (the settings gear, mode indicators) go in `.header-right` as
     `button.header-icon-btn` > `.ms`, with `title` / `aria-label` (localized). Do not restyle them per extension:
     the button size, `--text3` colour, hover and `--icon-md` icon come from `popup-common.css`.
+  - A status indicator is `.status-dot` (8px) as the first item of `.header-right`, with colour classes
+    `green` (ok), `accent` (active), `orange` (warning) and `red` (error / blocking); no class means idle (grey).
+    Its tooltip is the native `title` attribute (localized); do not build custom tooltips.
   - A popup whose settings live on the options page must have a settings gear (`settings` icon,
     `chrome.runtime.openOptionsPage()`) as the last item of `.header-right`.
 - Footer: `.footer` > `.footer-btn` links, right-aligned, icon only (title/aria-label set), in this order:
