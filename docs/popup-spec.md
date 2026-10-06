@@ -65,7 +65,8 @@ Sidebar + main layout. Files: `src/options/options-common.css` (layout, loaded a
   - `.sidebar-nav`: `.nav-item[data-page]` tabs, then external links (Privacy Policy, Terms of Service) as
     `a.nav-item` with a trailing `.nav-ext` icon;
   - `.sidebar-version[data-app-version]` ("<extension name> v<manifest version>");
-  - `.sidebar-support`: support message, Buy Me a Coffee banner (`.bmc-img`) and a GitHub Sponsors `.sponsor-btn`.
+  - `.sidebar-support`: support message (`supportMsg`: "If it's helpful, I'd love your support!" in each language,
+    followed by the Material `coffee` icon), Buy Me a Coffee banner (`.bmc-img`) and a GitHub Sponsors `.sponsor-btn`.
     GitHub has no banner image; the button is plain CSS (an official iframe exists at
     `https://github.com/sponsors/<user>/button` but it loads a github.com page and ignores dark mode).
 - Main: one `.page#page-<name>` per nav item; page title `.page-title`, sections as `.card-title` + `.card`.
