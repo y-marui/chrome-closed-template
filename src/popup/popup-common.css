@@ -3,12 +3,16 @@
  * content components (section, banner, button, toggle).
  * Keep this file identical across repositories (copy from chrome-closed-template).
  *
+ * Palette follows the UI guideline: light #fff / #4e454a / #000, dark #000 / #bab1b6 / #fff, and the
+ * dark accent and status colors keep hue and saturation of the light ones with lightness inverted.
+ *
  * Theme: light by default; dark when <html data-theme="dark">. Pages that never set
  * data-theme follow prefers-color-scheme. Pages that manage the theme themselves
  * must always set data-theme to "light" or "dark".
  */
 
 :root {
+  color-scheme: light;
   --bg: #ffffff;
   --bg2: #f5f2f4;
   --bg3: #ebe6e9;
@@ -35,6 +39,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg: #000000;
   --bg2: #1a1a1a;
   --bg3: #2a2a2a;
@@ -43,18 +48,18 @@
   --text-em: #ffffff;
   --text2: #8a8188;
   --text3: #5a5558;
-  --accent: #4da3ff;
-  --accent-bg: rgba(77, 163, 255, 0.1);
-  --accent-bd: rgba(77, 163, 255, 0.25);
-  --green: #34c068;
-  --green-bg: rgba(52, 192, 104, 0.1);
-  --green-bd: rgba(52, 192, 104, 0.25);
-  --red: #ff5a5a;
-  --red-bg: rgba(255, 90, 90, 0.1);
-  --red-bd: rgba(255, 90, 90, 0.22);
-  --orange: #ffb340;
-  --orange-bg: rgba(255, 179, 64, 0.1);
-  --orange-bd: rgba(255, 179, 64, 0.22);
+  --accent: #4091e5;
+  --accent-bg: rgba(64, 145, 229, 0.1);
+  --accent-bd: rgba(64, 145, 229, 0.25);
+  --green: #85e5a7;
+  --green-bg: rgba(133, 229, 167, 0.1);
+  --green-bd: rgba(133, 229, 167, 0.25);
+  --red: #e34646;
+  --red-bg: rgba(227, 70, 70, 0.1);
+  --red-bd: rgba(227, 70, 70, 0.22);
+  --orange: #f6954b;
+  --orange-bg: rgba(246, 149, 75, 0.1);
+  --orange-bd: rgba(246, 149, 75, 0.22);
   --gray-bg: rgba(186, 177, 182, 0.07);
   --gray-bd: rgba(186, 177, 182, 0.13);
   --hover: rgba(186, 177, 182, 0.07);
@@ -62,6 +67,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
+    color-scheme: dark;
     --bg: #000000;
     --bg2: #1a1a1a;
     --bg3: #2a2a2a;
@@ -70,18 +76,18 @@
     --text-em: #ffffff;
     --text2: #8a8188;
     --text3: #5a5558;
-    --accent: #4da3ff;
-    --accent-bg: rgba(77, 163, 255, 0.1);
-    --accent-bd: rgba(77, 163, 255, 0.25);
-    --green: #34c068;
-    --green-bg: rgba(52, 192, 104, 0.1);
-    --green-bd: rgba(52, 192, 104, 0.25);
-    --red: #ff5a5a;
-    --red-bg: rgba(255, 90, 90, 0.1);
-    --red-bd: rgba(255, 90, 90, 0.22);
-    --orange: #ffb340;
-    --orange-bg: rgba(255, 179, 64, 0.1);
-    --orange-bd: rgba(255, 179, 64, 0.22);
+    --accent: #4091e5;
+    --accent-bg: rgba(64, 145, 229, 0.1);
+    --accent-bd: rgba(64, 145, 229, 0.25);
+    --green: #85e5a7;
+    --green-bg: rgba(133, 229, 167, 0.1);
+    --green-bd: rgba(133, 229, 167, 0.25);
+    --red: #e34646;
+    --red-bg: rgba(227, 70, 70, 0.1);
+    --red-bd: rgba(227, 70, 70, 0.22);
+    --orange: #f6954b;
+    --orange-bg: rgba(246, 149, 75, 0.1);
+    --orange-bd: rgba(246, 149, 75, 0.22);
     --gray-bg: rgba(186, 177, 182, 0.07);
     --gray-bd: rgba(186, 177, 182, 0.13);
     --hover: rgba(186, 177, 182, 0.07);

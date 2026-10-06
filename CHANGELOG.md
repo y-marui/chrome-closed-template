@@ -4,6 +4,7 @@
 
 ### Added
 
+- UI guideline conformance: dark accent/status colors derived by inverting lightness, `color-scheme` for native controls, `shared/material-icons.js` (inline Material Symbols SVG for content scripts), and the documented exceptions (language flags, theme button previews).
 - Shared UI spec for chrome-* extensions (`docs/popup-spec.md`): `popup-common.css` (palette, header, footer, buttons, banner, toggle, font/icon scale), `options-common.css` (sidebar + main options layout), `options-shell.js` and `theme.js`.
 - Options page skeleton with General, Appearance and Changelog tabs, version label, policy links and support block; `storage` permission and `storage.onChange` wrapper.
 

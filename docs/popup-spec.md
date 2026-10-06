@@ -104,3 +104,13 @@ other than Material Symbols are loaded.
   `.card-sublabel`. If the card needs a leading note inside a row card, `.card > .card-note` adds its own padding.
 - Radius: 4px chips (tags, badges), 7px (`--btn-radius`) controls, tiles and banners, 12px cards, 20px pills.
 - Font sizes come from the `--fs-*` scale; only the stat numbers (28px) and decorative icons are outside it.
+
+## UI guideline conformance
+
+- Palette: light `#FFFFFF` / `#4e454a` / `#000000`, dark `#000000` / `#bab1b6` / `#FFFFFF`. The dark accent and status
+  colors keep hue and saturation of the light ones with lightness inverted (accent `#4091e5`, green `#85e5a7`,
+  red `#e34646`, orange `#f6954b`).
+- Native controls follow the theme through `color-scheme` (set with the palette in `popup-common.css`).
+- No Unicode emoji in UI parts, except the country flags on language buttons (see dev-charter `UI_GUIDELINES.md`,
+  Exceptions). Content scripts injected into other sites draw Material Symbols with `src/shared/material-icons.js`
+  (inline SVG, `currentColor`) instead of emoji.
