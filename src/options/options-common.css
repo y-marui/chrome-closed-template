@@ -442,3 +442,52 @@ a.nav-item {
   background: var(--accent-bg);
   color: var(--accent);
 }
+
+/* Spacing rules for the main area */
+:root {
+  --gap-section: 22px; /* before a card title */
+  --gap-lead: 18px;    /* between the page header and the first card title, and before action rows */
+  --gap-inner: 12px;   /* between blocks inside a free-form card */
+}
+
+.page-desc + .card-title,
+.unsaved-bar + .card-title {
+  margin-top: 0;
+}
+
+.unsaved-bar {
+  margin: 0 0 var(--gap-lead);
+}
+
+.main .btn-row {
+  margin-top: var(--gap-lead);
+}
+
+/* Free-form card: uniform spacing between its blocks */
+.card-pad > * + * {
+  margin-top: var(--gap-inner);
+}
+
+.card-note {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--text2);
+}
+
+.card:not(.card-pad) > .card-note {
+  padding: 14px 16px 0;
+}
+
+.card-divider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: var(--gap-inner);
+  border-top: 1px solid var(--border);
+}
+
+.card-sublabel {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  color: var(--text2);
+}

@@ -92,3 +92,14 @@ Options pages reuse the popup palette and these classes: `.page-title`, `.card-t
 `.setting-sub`, `.toggle`, `.btn` (`.btn-primary` for the main action), `.field`. Inputs and choice buttons are
 28px high (`--btn-height`) with 7px radius. Monospace text (ids, domains, times) uses `--font-mono`; no web fonts
 other than Material Symbols are loaded.
+
+### Spacing and radius scale (main area)
+
+- Vertical rhythm: header to first card title 18px, card title to card 8px, card to next card title 22px,
+  card to the action row (`.btn-row`) 18px. Tokens: `--gap-lead`, `--gap-section`, `--gap-inner`.
+- Row cards (`.card` with `.setting-row`): each row has its own 14px 16px padding and a divider.
+- Free-form cards (`.card.card-pad`): 14px 16px padding and 12px between blocks (`.card-pad > * + *`);
+  never add per-element margins. Notes use `.card-note`, a divided sub-section uses `.card-divider` +
+  `.card-sublabel`. If the card needs a leading note inside a row card, `.card > .card-note` adds its own padding.
+- Radius: 4px chips (tags, badges), 7px (`--btn-radius`) controls, tiles and banners, 12px cards, 20px pills.
+- Font sizes come from the `--fs-*` scale; only the stat numbers (28px) and decorative icons are outside it.
