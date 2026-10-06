@@ -11,7 +11,7 @@
 
 ### Changed
 
-- The support hints now name the service: the options sidebar shows a separate message above the Buy Me a Coffee banner and the GitHub Sponsors button, and the popup footer buttons carry the same hint as tooltip (`supportBmc` / `supportSponsors`, replacing `supportMsg`).
+- The popup footer Buy Me a Coffee / GitHub Sponsors buttons now carry a hint that names the service and ends with ☕ / ❤️ (`supportBmc` / `supportSponsors`), shown as tooltip and `aria-label`. The options sidebar keeps the single support message (`supportMsg`).
 - Updated `docs/dev-charter/` to include the new `chrome-extension` topic (`CHROME_EXTENSION_DEV_ENV.md`). `AI_CONTEXT.md`'s Build & Test Commands / Chrome API Rules sections now reference it instead of restating the general dev-env policy (y-marui/dev-charter#133).
 
 ### Fixed
