@@ -86,7 +86,9 @@ Sidebar + main layout. Files: `src/options/options-common.css` (layout, loaded a
 - Main: one `.page#page-<name>` per nav item; page title `.page-title`, sections as `.card-title` + `.card`.
 - Tabs: every extension has **General** (settings), **Appearance** (theme, and language where the extension is localized) and **Changelog** (release history). Extensions with many
   settings may split General into several tabs, but Changelog is always last.
-- Changelog data: `{version, date, items: [{tag, desc}]}` with tags `added`, `fixed`, `improved`, `changed`, `chore`.
+- Changelog data: `{version, date, items: [{tag, desc}]}` with the shared tag set `added`, `changed`, `improved`, `fixed`, `removed`, `security`, `chore`
+  (all seven are styled in `options-common.css` and translated in every localized extension, whether or not a release uses them yet).
+  Only the tag labels are translated; the `desc` text is written in English in every extension (see `LANGUAGE_POLICY.md`).
 
 ### Appearance tab
 
