@@ -12,7 +12,7 @@ concurrency:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.LINUX_RUNNER && !github.event.pull_request.head.repo.fork && vars.LINUX_RUNNER || 'ubuntu-latest' }}
     permissions:
       contents: write
       id-token: write
