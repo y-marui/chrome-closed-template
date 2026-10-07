@@ -223,8 +223,10 @@ body {
 
 .changelog-tag-added    { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-bd); }
 .changelog-tag-fixed    { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-bd); }
+.changelog-tag-security { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-bd); }
 .changelog-tag-improved,
 .changelog-tag-changed,
+.changelog-tag-removed,
 .changelog-tag-chore    { background: var(--bg3);       color: var(--text2);  border: 1px solid var(--border); }
 
 /* Buttons in the main area keep their natural width */
