@@ -2,7 +2,17 @@
 
 > **このファイルはセッションをまたぐ AI コンテキストの主ファイルです。**
 > `docs/dev-charter/` の内容をこのプロジェクト向けにコンパイルしています。
-> 日常作業では dev-charter を直接参照せず、このファイルを使用してください。
+> 日常作業ではこのファイルを使用してください。憲章の参照が必要な作業は「Charter Lookup」に従ってください。
+
+## Charter Lookup
+
+憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
+
+次の変更を始める前に、該当トピックを確認する: UI・ローカライズ・CI/ワークフロー・リリース・依存関係・ライセンス・PR/ブランチ運用。
+
+1. `docs/dev-charter/CHARTER_INDEX.md` を読み、該当トピックのファイルを特定する
+2. 特定したファイル（原則 1〜2 件）のみを読む
+3. 参照後にユーザーへ提案・確認を行う
 
 ## AI Reference Order
 
@@ -256,8 +266,6 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
 ---
 
 ## Reference Docs
-
-憲章参照: `docs/dev-charter/CHARTER_INDEX.md` でトピックを特定してから該当ファイルのみ読む
 
 - [アーキテクチャ・編集ガイド](docs/architecture.md)
 - [ファイルマップ](docs/file-map.md)
