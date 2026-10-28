@@ -50,6 +50,10 @@ Chrome 拡張機能テンプレートの機能仕様・動作定義・データ�
 |----------------|--------|--------|-----------|
 | `EXAMPLE_ACTION` | popup | background | `{}` |
 
+## External Requests
+
+ポップアップ・設定画面は、フォント・アイコン・画像を含め、拡張機能の外へ通信しない。アイコンフォント（サブセット）と Buy Me a Coffee のボタン画像は `public/` に同梱している。
+
 ## Permissions
 
 `manifest.json` 参照。テンプレートデフォルトでは permissions・host_permissions ともに空（最小権限）。

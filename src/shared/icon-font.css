@@ -1,0 +1,8 @@
+/* Material Symbols Outlined（Apache License 2.0）の使用アイコンだけを抜き出したサブセット。
+   外部（Google Fonts）へ通信しないために同梱する。アイコンを追加したら作り直す（docs/ui-design.md）。 */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../public/fonts/material-symbols-outlined-subset.woff2") format("woff2");
+}
