@@ -56,6 +56,7 @@ const STATIC_INCLUDE = [
   'public',
   'src/popup/popup.html',
   'src/popup/popup-common.css',
+  'src/shared/icon-font.css',
   'src/popup/popup.css',
   'src/options/options.html',
   'src/options/options-common.css',

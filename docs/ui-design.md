@@ -26,6 +26,8 @@ dev-charter の `UI_GUIDELINES.md`（Exceptions）に従う。このプロジェ
 
 ## Icons
 
+アイコンフォントは外部（Google Fonts）から読み込まず、使用中のアイコンだけを抜き出したサブセットを `public/fonts/material-symbols-outlined-subset.woff2` として同梱し、`src/shared/icon-font.css` の `@font-face` で参照する（Material Symbols は Apache License 2.0）。アイコンを追加・変更したら、Google Fonts の CSS API（`https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=<名前をカンマ区切り・昇順>`）が返す woff2 で差し替える。
+
 | ライブラリ | 用途 |
 |-----------|------|
 | **Google Material Symbols** | 標準 UI アイコンの第一選択 |
