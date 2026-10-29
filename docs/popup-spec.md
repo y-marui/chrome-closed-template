@@ -53,6 +53,10 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
     `"Name – tagline"`), also set `manifest.json`'s `short_name` (and a matching `appShortName` message key)
     to the name without the tagline. Otherwise the full tagline can show up in space-constrained browser UI,
     such as the Search Engines settings page for an extension that registers an `omnibox` keyword.
+  - Keep that tagline itself short (2–3 words), in English regardless of the extension's display language
+    (same `message` text in every locale's `appName`; this is a different string from `appTagline`, the
+    longer, translated subtitle shown in the popup/options header), and avoid repeating words already in
+    the extension's own name (e.g. `"Prevent Duplicates"`, `"Split Searches"`).
   - Actions in the header (the settings gear, mode indicators) go in `.header-right` as
     `button.header-icon-btn` > `.ms`, with `title` / `aria-label` (localized). Do not restyle them per extension:
     the button size, `--text3` colour, hover and `--icon-md` icon come from `popup-common.css`.
