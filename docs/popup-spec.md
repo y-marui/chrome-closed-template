@@ -49,6 +49,10 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
   - The title is the extension's display name and the description is a short English tagline. Both are
     **fixed English text, never localized** (no `data-i18n`, no `_locales` key), and identical in the popup and in
     the options sidebar header. Do not set them from JS.
+  - If the Store listing name (`_locales/*/messages.json`'s `appName`) appends a tagline (e.g.
+    `"Name – tagline"`), also set `manifest.json`'s `short_name` (and a matching `appShortName` message key)
+    to the name without the tagline. Otherwise the full tagline can show up in space-constrained browser UI,
+    such as the Search Engines settings page for an extension that registers an `omnibox` keyword.
   - Actions in the header (the settings gear, mode indicators) go in `.header-right` as
     `button.header-icon-btn` > `.ms`, with `title` / `aria-label` (localized). Do not restyle them per extension:
     the button size, `--text3` colour, hover and `--icon-md` icon come from `popup-common.css`.
