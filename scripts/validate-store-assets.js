@@ -4,6 +4,8 @@
  *
  * 検証項目:
  * - 詳細説明の文字数 (16,000文字以内)
+ * - manifest.json の name (50文字超は error、45文字超は warning) と
+ *   short_name (12文字超は warning)。__MSG_xxx__ は全ロケールで展開して検査する
  *
  * 使い方:
  *   npm run validate:store
@@ -14,12 +16,14 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { checkManifestNames } from './lib/manifest-names.js';
 
 const DESCRIPTION_LIMIT = 16000;
 const LOCALES = ['en', 'ja'];
 const PLATFORMS = ['chrome', 'firefox'];
 
 let errors = [];
+let warnings = [];
 
 function validateTextFiles(platform) {
   LOCALES.forEach((locale) => {
@@ -41,6 +45,13 @@ function validateTextFiles(platform) {
   });
 }
 
+function validateManifestNames() {
+  const result = checkManifestNames('.');
+  result.checked.forEach((line) => console.log(`  [OK] ${line}`));
+  result.warnings.forEach((w) => warnings.push(`  [WARN] ${w}`));
+  result.errors.forEach((e) => errors.push(`  [ERROR] ${e}`));
+}
+
 function main() {
   console.log('Store Assets Validation');
   console.log('='.repeat(40));
@@ -50,7 +61,11 @@ function main() {
     validateTextFiles(platform);
   });
 
+  console.log('\n[manifest.json names]');
+  validateManifestNames();
+
   console.log('\n' + '='.repeat(40));
+  warnings.forEach((w) => console.log(w));
   if (errors.length > 0) {
     console.log('\nValidation failed:\n');
     errors.forEach((err) => console.log(err));

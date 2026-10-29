@@ -48,6 +48,8 @@ mv README_TEMPLATE-jp.md README-jp.md    # 日本語版を配置
 
 その後、`README.md`・`README-jp.md`・`LICENSE` のプレースホルダ（`{user}`・`{repo}`・`{workflow}`・`[YEAR]`・`[AUTHOR]`・`[USERNAME]`・`[BMC_USERNAME]`）を置き換えます。
 
+あわせて `manifest.json`・`src/popup/popup.html`・`src/options/options.html` の `[APP_NAME]`・`[TAGLINE]`（英語固定）も置き換えます。`name` は `<アプリ名> – <タグライン>`（en dash の前後に半角スペース）、`short_name` は `<アプリ名>` とし、popup と options サイドバーのヘッダーは上段にアプリ名、下段にタグラインを表示します。詳細は [docs/popup-spec.md](docs/popup-spec.md) を参照してください。残っていると `npm test` が失敗します。また `name` 全体が 50 文字以内（Microsoft Edge Add-ons にも出す場合は 45 文字以内）、`short_name` が 12 文字以内に収まるか確認します（`npm run validate:store` で検査できます）。
+
 ### 3. Environment Setup
 
 Node.js v20 以上と [pre-commit](https://pre-commit.com) をインストールした上で実行します。

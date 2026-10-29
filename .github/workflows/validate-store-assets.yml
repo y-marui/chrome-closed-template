@@ -6,6 +6,8 @@ on:
     paths:
       - 'assets/store/**'
       - 'docs/store/**'
+      - 'manifest.json'
+      - '_locales/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

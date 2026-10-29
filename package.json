@@ -7,7 +7,7 @@
     "build": "npm run build:chrome && npm run build:firefox",
     "build:chrome": "node scripts/build.js chrome",
     "build:firefox": "node scripts/build.js firefox",
-    "test": "node test/unit/shared.test.js",
+    "test": "node test/unit/shared.test.js && node test/unit/placeholders.test.js && node test/unit/manifest-names.test.js",
     "lint": "eslint .",
     "validate:store": "node scripts/validate-store-assets.js"
   },

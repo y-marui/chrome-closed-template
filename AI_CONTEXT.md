@@ -256,6 +256,11 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
    - `[YEAR]` / `[AUTHOR]` — 現在の年と著作権者名
    - `[USERNAME]` — GitHub ユーザー名（GitHub Sponsors バッジ・`.github/FUNDING.yml`）
    - `[BMC_USERNAME]` — Buy Me a Coffee ユーザー名（`.github/FUNDING.yml`・サポートバッジ）
+   - `[APP_NAME]` / `[TAGLINE]` — アプリ名とタグライン（英語固定。いずれも `manifest.json`・`src/popup/popup.html`・`src/options/options.html` に含まれる）。
+     `name` は `<アプリ名> – <タグライン>`（en dash U+2013 の前後に半角スペース）、`short_name` は `<アプリ名>`、
+     popup と options サイドバーの `.header-title` / `.header-desc` はそれぞれアプリ名 / タグライン。
+     規約の詳細は [docs/popup-spec.md](docs/popup-spec.md) の Header 節。置換漏れは `npm test`（`test/unit/placeholders.test.js`）が検出する。
+     置換後は `name` の文字数（50 文字以内、Edge にも出すなら 45 文字以内）と `short_name`（12 文字以内）を `npm run validate:store` で確認する
 4. **Firefox 提出用 ID を設定する**（Firefox AMO への提出予定がある場合）:
    - `scripts/build.js` の `{extension-id}@example.com` を実際の一意な ID（例: `my-extension@example.com`）に置換する
 5. **ストア掲載素材のプレースホルダを置換する**（`docs/store/`）:

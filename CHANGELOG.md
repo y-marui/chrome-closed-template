@@ -4,6 +4,8 @@
 
 ### Added
 
+- App name and tagline placeholders `[APP_NAME]` / `[TAGLINE]` in `manifest.json` (`name` = `<app name> – <tagline>`, `short_name` = `<app name>`), `popup.html` and `options.html` (header). `npm test` fails when a project created from the template still has them, or when `name` / `short_name` / the headers disagree. The naming and length rules are in `docs/popup-spec.md`.
+- `scripts/lib/manifest-names.js`: `npm run validate:store` (and `npm test`) checks the length of `manifest.json`'s `name` (error over 50, warning over 45) and `short_name` (warning over 12), expanding `__MSG_xxx__` in every locale.
 - Header rules in `docs/popup-spec.md`: fixed English subtitle, `.header-icon-btn` (settings gear), `.status-dot`, and the language button order; `popup-common.css` gains `.header-icon-btn` / `.status-dot`.
 - UI guideline conformance: dark accent/status colors derived by inverting lightness, `color-scheme` for native controls, `shared/material-icons.js` (inline Material Symbols SVG for content scripts), and the documented exceptions (language flags, theme button previews).
 - Shared UI spec for chrome-* extensions (`docs/popup-spec.md`): `popup-common.css` (palette, header, footer, buttons, banner, toggle, font/icon scale), `options-common.css` (sidebar + main options layout), `options-shell.js` and `theme.js`.
