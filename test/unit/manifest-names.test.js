@@ -22,12 +22,16 @@ function fixture(manifest, locales = {}){
 const msg = (message) => ({ message })
 const chars = (n) => "a".repeat(n)
 
-// テンプレート自身（プレースホルダのまま）は通る
+// 実際の manifest は error だけを検査する（warning は Edge など掲載先次第の注意なので失敗にしない）
 const actual = checkManifestNames(path.resolve(path.dirname(new URL(import.meta.url).pathname), "../.."))
-assert(actual.errors.length === 0 && actual.warnings.length === 0, "template manifest should pass")
+assert(actual.errors.length === 0, `manifest name should have no errors: ${actual.errors.join(", ")}`)
+
+// テンプレートのプレースホルダのままの名前は error も warning も出ない
+let r = checkManifestNames(fixture({ name: "[APP_NAME] \u2013 [TAGLINE]", short_name: "[APP_NAME]" }))
+assert(r.errors.length === 0 && r.warnings.length === 0, "template placeholders should pass")
 
 // name: 45 以下は OK、46〜50 は warning、51 以上は error
-let r = checkManifestNames(fixture({ name: chars(45), short_name: chars(12) }))
+r = checkManifestNames(fixture({ name: chars(45), short_name: chars(12) }))
 assert(r.errors.length === 0 && r.warnings.length === 0, "45/12 chars should pass")
 r = checkManifestNames(fixture({ name: chars(46) }))
 assert(r.errors.length === 0 && r.warnings.length === 1, "46 chars should warn")
