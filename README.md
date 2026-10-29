@@ -48,6 +48,8 @@ mv README_TEMPLATE-jp.md README-jp.md  # use the Japanese project README templat
 
 Then update the placeholders (`{user}`, `{repo}`, `{workflow}`, `[YEAR]`, `[AUTHOR]`, `[USERNAME]`, `[BMC_USERNAME]`) in `README.md`, `README-jp.md`, and `LICENSE`.
 
+Also replace `[APP_NAME]` and `[TAGLINE]` (fixed English text) in `manifest.json`, `src/popup/popup.html` and `src/options/options.html`: `name` becomes `<app name> – <tagline>` (en dash with spaces), `short_name` becomes `<app name>`, and the popup / options sidebar header shows the app name above the tagline. See [docs/popup-spec.md](docs/popup-spec.md). `npm test` fails while any of them remains. Check that the whole name stays within 50 characters (45 for Microsoft Edge Add-ons) and `short_name` within 12; `npm run validate:store` reports it.
+
 ### 3. Set up environment
 
 Requires Node.js v20+ and [pre-commit](https://pre-commit.com).

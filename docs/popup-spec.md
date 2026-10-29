@@ -46,17 +46,41 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
 ## Markup
 
 - Header: `.header` > `img`, `.header-title`, `.header-desc`, `.header-right` (optional on the popup, see below).
-  - The title is the extension's display name and the description is a short English tagline. Both are
+  - The title is the extension's app name and the description is a short English tagline. Both are
     **fixed English text, never localized** (no `data-i18n`, no `_locales` key), and identical in the popup and in
     the options sidebar header. Do not set them from JS.
-  - If the Store listing name (`_locales/*/messages.json`'s `appName`) appends a tagline (e.g.
-    `"Name – tagline"`), also set `manifest.json`'s `short_name` (and a matching `appShortName` message key)
-    to the name without the tagline. Otherwise the full tagline can show up in space-constrained browser UI,
-    such as the Search Engines settings page for an extension that registers an `omnibox` keyword.
-  - Keep that tagline itself short (2–3 words), in English regardless of the extension's display language
-    (same `message` text in every locale's `appName`; this is a different string from `appTagline`, the
-    longer, translated subtitle shown in the popup/options header), and avoid repeating words already in
-    the extension's own name (e.g. `"Prevent Duplicates"`, `"Split Searches"`).
+  - The canonical name (`manifest.json`'s `name`) is `<app name> – <tagline>` (en dash U+2013 with a space on
+    each side, English regardless of the display language), and `short_name` is `<app name>` alone. Without
+    `short_name` the full tagline can show up in space-constrained browser UI, such as the Search Engines
+    settings page for an extension that registers an `omnibox` keyword.
+  - Keep the tagline short (2–3 words) and avoid repeating words already in the app name
+    (e.g. `Duplicate Detection`, `Route Your Searches`).
+  - Length limits of the store listing name (`name`, the whole `<app name> – <tagline>`):
+
+    | Store | Limit |
+    |---|---|
+    | Chrome Web Store | 75 chars |
+    | Firefox (addons.mozilla.org) | 50 chars (older docs say 45, but the submission error is at 50) |
+    | Microsoft Edge Add-ons | 45 chars |
+
+    Aim for **50 chars or fewer** for the whole `name` because the extension is also published on Firefox;
+    if it is also published on Edge, **45 chars or fewer**. A 2–3 word tagline can still push a long app name
+    over the limit, so always count the full string. `short_name` should be **12 chars or fewer** (Chrome
+    recommends it; not enforced). With `_locales`, every locale's expanded string must meet these limits, since
+    AMO also checks translated names.
+  - `scripts/validate-store-assets.js` (`npm run validate:store`, also run by `npm test` through
+    `scripts/lib/manifest-names.js`) counts them: `name` over 50 is an error, over 45 a warning, and
+    `short_name` over 12 a warning. `__MSG_xxx__` is expanded with every `_locales/*/messages.json`.
+  - In this template the three places carry the placeholders `[APP_NAME]` and `[TAGLINE]`: `manifest.json`
+    (`name`, `short_name`), `src/popup/popup.html` and `src/options/options.html` (`<title>`, `.header-title`,
+    `.header-desc`). Replace all of them right after creating a project from the template; `npm test`
+    (`test/unit/placeholders.test.js`) fails while any remain, or when `name` / `short_name` / the headers
+    disagree. The template repository itself is exempt (it has `README_TEMPLATE.md`).
+  - The template writes these strings directly into `manifest.json` and keeps no `_locales`. If the extension
+    later moves to `_locales`, set `name` to `__MSG_appName__` and `short_name` to `__MSG_appShortName__`, and
+    give `appName` (`"<app name> – <tagline>"`) and `appShortName` (`"<app name>"`) the **same English `message`
+    in every locale** (do not translate them; this is a different string from `appTagline`, a longer,
+    translated subtitle some products show). Add `default_locale` too. The header HTML stays hard-coded English.
   - Actions in the header (the settings gear, mode indicators) go in `.header-right` as
     `button.header-icon-btn` > `.ms`, with `title` / `aria-label` (localized). Do not restyle them per extension:
     the button size, `--text3` colour, hover and `--icon-md` icon come from `popup-common.css`.
