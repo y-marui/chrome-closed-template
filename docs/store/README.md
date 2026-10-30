@@ -1,8 +1,10 @@
 # ストア掲載素材の管理ガイド
 
-ストア掲載素材（テキスト・画像とも）はプラットフォームごとに `docs/store/<platform>/` に
-まとめる。`assets/` はアイコンデザインの旧版アーカイブ専用とし、ストア提出物とは分離する
-（`assets/README.md` があれば参照）。
+> このファイルは正本（日本語版）です。
+
+ストア掲載素材（テキスト・採用済み画像）は `docs/store/<platform>/` にまとめる。
+撮影元・候補・旧掲載画像は `assets/store/<platform>/` で管理する。
+画像の採用・差し替え・保管規約の正本は [assets/README.md](../../assets/README.md#store-image-workflow)。
 
 ## Directory Structure
 
@@ -37,15 +39,10 @@ Firefox 非対応プロジェクトでは `docs/store/firefox/` を削除して�
 ## Image Management
 
 ### How to Add
-画像を更新する場合は、既存ファイルを削除せず新しいファイルを追加する。
 
-```bash
-# 推奨命名規則: YYYY-MM_説明.png
-cp new_screenshot.png docs/store/chrome/screenshots/2025-06_main-popup.png
-```
-
-### Recommended Naming Convention
-`YYYY-MM_説明.png` — 例: `2025-06_main-popup.png`、`2025-06_settings.png`
+[画像管理規約](../../assets/README.md#store-image-workflow)に従い、採用済みの画像だけを置く。
+差し替えた旧掲載画像は `assets/store/<platform>/archive/` に移す。
+現在の掲載順と使用ファイルは各プラットフォームのREADMEに明記する。
 
 ### Image Size Requirements
 

@@ -77,7 +77,7 @@ src/
     storage.js    Chrome API ラッパー（ローカルストレージ）
     utils.js      純粋関数（Chrome API 非依存）
 docs/store/     ストア掲載素材（説明文・権限使用理由・スクリーンショット。詳細は docs/store/README.md）
-assets/archive/ アイコンデザイン旧版の保管（参照専用。ストア掲載素材は含まない）
+assets/         アイコン原本・旧版とストア画像の撮影元・候補・旧掲載画像（assets/README.md参照）
 ```
 
 ---
