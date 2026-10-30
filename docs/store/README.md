@@ -31,8 +31,7 @@ docs/store/
 
 Firefox 非対応プロジェクトでは `docs/store/firefox/` を削除してよい。
 
-**プライバシーポリシー:** リポジトリの公開状態に関わらずストアから参照できるよう、Gist等で
-外部管理する。URLは各プラットフォームの `config.json` の `privacy_policy_url` を参照。
+**公開URL:** 製品ホーム・プライバシーポリシー・利用規約・サポートは、ストアから参照可能な公開ページを各プロジェクトで用意する。公開先を特定のホストやGistに固定しない。設定とUI内の `https://url.invalid/to/hp`・`https://url.invalid/to/privacy`・`https://url.invalid/to/terms`・`https://url.invalid/to/support` は意図的に無効なプレースホルダーで、公開先への置換と到達性確認が必要。非公開リポジトリのURLを公開窓口の代用にしない。
 
 ---
 

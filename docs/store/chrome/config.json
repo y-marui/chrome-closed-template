@@ -1,8 +1,8 @@
 {
   "category": "{Chrome Web Store のカテゴリ}",
-  "support_url": "https://github.com/{user}/{repo}/issues",
-  "homepage_url": "https://github.com/{user}/{repo}",
-  "privacy_policy_url": "{privacy_policy_url}",
+  "support_url": "https://url.invalid/to/support",
+  "homepage_url": "https://url.invalid/to/hp",
+  "privacy_policy_url": "https://url.invalid/to/privacy",
   "video_url": "",
   "_notes": {
     "category_options": {

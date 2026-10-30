@@ -115,6 +115,7 @@ Files to edit when starting a new project from this template:
 | `src/shared/message-types.js` | Message types for inter-component communication |
 | `public/icons/` | Replace placeholder 1×1px icons with 16×16, 48×48, 128×128 PNGs |
 | `scripts/build.js` | Replace the `{extension-id}@example.com` placeholder with a real ID before publishing to Firefox AMO |
+| Public URLs | Replace the `https://url.invalid/to/hp`, `privacy`, `terms`, and `support` placeholders in popup, options and store config with public URLs and verify reachability |
 | Privacy Policy page | Create and publish a privacy policy page (e.g. GitHub Pages) — required for Chrome Web Store submission |
 
 ## AI-Assisted Development

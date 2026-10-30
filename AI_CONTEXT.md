@@ -265,7 +265,8 @@ Chrome 拡張 → **Buy Me a Coffee** を使用する。独自課金システム
    - `scripts/build.js` の `{extension-id}@example.com` を実際の一意な ID（例: `my-extension@example.com`）に置換する
 5. **ストア掲載素材のプレースホルダを置換する**（`docs/store/`）:
    - Firefox 非対応の場合は `docs/store/firefox/` ごと削除する
-   - `chrome/config.json`・`firefox/config.json` の `{user}`/`{repo}`/`{privacy_policy_url}` 等を置換する
+   - `src/popup/popup.html`・`src/options/options.html` とストアconfigの `https://url.invalid/to/hp`・`https://url.invalid/to/privacy`・`https://url.invalid/to/terms`・`https://url.invalid/to/support` を、プロジェクトの実際の公開URLに置換する。これらは意図的に無効なプレースホルダーで、テンプレートのリポジトリや非公開リポジトリへのリンクで代用しない
+   - 公開ページの到達性を確認してから提出する。個人ドメイン・公開先リポジトリはテンプレートに固定せず、プロジェクト設定で管理する
    - `chrome/ja・en/description.md`・`chrome/permissions.md` を実際の内容に書き換える
 
 ---

@@ -115,6 +115,7 @@ chrome-extension-template/
 | `src/shared/message-types.js` | コンポーネント間通信のメッセージタイプ |
 | `public/icons/` | プレースホルダー（1×1px）を 16×16・48×48・128×128px の PNG に差し替える |
 | `scripts/build.js` | Firefox AMO への公開予定がある場合、`{extension-id}@example.com` を実際の一意な ID に差し替える |
+| Public URLs | popup・options・ストアconfigの `https://url.invalid/to/hp`・`privacy`・`terms`・`support` を実際の公開URLに置換し、到達性を確認する |
 | プライバシーポリシーページ | Chrome Web Store 公開に必要なため、ポリシーページを作成・公開する（GitHub Pages など） |
 
 ## AI-Assisted Development
