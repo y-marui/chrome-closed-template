@@ -123,6 +123,10 @@ assets/         アイコン原本・旧版とストア画像の撮影元・候�
 - `git subtree pull` によるアップデートのみ許可する
 - このプロジェクト固有のルールは `AI_CONTEXT.md` または専用ファイルに記載する
 
+## Chrome Web Store URLs
+
+Chrome Web Store のURLは製品名部分を含めず、`https://chromewebstore.google.com/detail/<拡張機能ID>` に統一する。サポートURLはその末尾に `/support` を付ける。README・ストア設定・公開製品ページに同じ規則を適用する。
+
 ---
 
 ## AI Collaboration Rules
