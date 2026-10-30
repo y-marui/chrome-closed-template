@@ -96,8 +96,7 @@ Extension-specific styles go in the page or `popup.css`, using the tokens above.
   "If it's helpful, I'd love your support via Buy Me a Coffee! ☕"
   (GitHub Sponsors ends with ❤️).
 - Material Symbols Outlined is loaded from Google Fonts in the page `<head>`.
-- Links: `https://y-marui.github.io/y-marui/products/<repo>/` (`privacy/`, `terms/`). Until those pages
-  exist, link to the repository page. Sponsor links use the same values as the README.
+- Links: `https://url.invalid/to/hp`, `https://url.invalid/to/privacy`, and `https://url.invalid/to/terms` are deliberately invalid placeholders for the product homepage, privacy policy, and terms. Replace them in both popup and options with the project's public URLs and verify reachability before submission. Do not substitute the template repository or a private repository URL. Sponsor links use the same values as the README.
 
 ## Options page
 
