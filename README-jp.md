@@ -14,7 +14,7 @@ Chrome 拡張機能を AI 支援開発（Claude Code・GitHub Copilot）で構�
 | 開発対象 | Chrome 拡張機能（Manifest V3） |
 | 開発環境 | 小規模チーム（1〜3人） |
 | 主言語 | 日本語 |
-| AI ツール | Claude Code / GitHub Copilot / Gemini CLI |
+| AI ツール | Claude Code / GitHub Copilot |
 | 動作環境 | Chrome（最新版） |
 
 ## Features
@@ -126,7 +126,6 @@ chrome-extension-template/
 |---|---|
 | Claude Code | 構成変更・大規模実装・アーキテクチャ設計 |
 | GitHub Copilot | 細かな実装補助・テスト作成 |
-| Gemini CLI | ドキュメント生成・翻訳補助 |
 
 詳細は [AI_CONTEXT.md](AI_CONTEXT.md) を参照してください。
 

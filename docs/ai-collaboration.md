@@ -24,6 +24,6 @@ description: AI の振る舞い・コーディング前の確認事項・エラ�
 
 ## AI Tool Role Assignment
 
-- **使用ツール**：Claude Code、GitHub Copilot、Gemini CLI
+- **使用ツール**：Claude Code、GitHub Copilot
 - **標準担当の正本**：`docs/dev-charter/AI_COLLABORATION_RULES.md` の「AI Tool Responsibilities」と「Rules for Multi-AI Usage」
 - **プロジェクト固有の上書き**：なし

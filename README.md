@@ -14,7 +14,7 @@ A Chrome Extension template for AI-assisted development (Claude Code / GitHub Co
 | Target | Chrome Extension (Manifest V3) |
 | Team size | Small team (1–3 developers) |
 | Primary language | Japanese |
-| AI tools | Claude Code / GitHub Copilot / Gemini CLI |
+| AI tools | Claude Code / GitHub Copilot |
 | Runtime | Chrome (latest) |
 
 ## Features
@@ -126,7 +126,6 @@ This template is designed for development with Claude Code and GitHub Copilot.
 |---------|------|
 | Claude Code | Architecture, large-scale changes, project setup |
 | GitHub Copilot | Small fixes, test writing, coding assistance |
-| Gemini CLI | Document generation, translation |
 
 See [AI_CONTEXT.md](AI_CONTEXT.md) for details.
 
