@@ -1,3 +1,7 @@
+---
+description: バージョン更新から Chrome Web Store / Firefox AMO 提出・タグ push までのリリース手順
+---
+
 > このファイルは正本（日本語版）です。
 
 # Release Process
@@ -92,6 +96,13 @@ Actions が実行できない場合（課金・spending limit の問題等）は
 ```bash
 make release
 ```
+
+`Attest build provenance` は公開リポジトリのタグ push でだけ実行する。個人所有の非公開
+リポジトリでは GitHub が attestation の保存に対応しておらず
+（`Feature not available for user-owned private repositories.`）、実行すると
+Release 作成まで止まるため、`github.event.repository.private == false` で除外している。
+非公開リポジトリの Release には来歴（provenance）が付かない。ZIP とチェックサムは
+どちらでも添付される。
 
 `workflow_dispatch` でも同じビルドをブランチ上で試せる（タグ push でない
 ため GitHub Release の作成とバージョン一致チェックはスキップされる）。

@@ -1,3 +1,7 @@
+---
+description: docs/ を保守するためのプロンプト集
+---
+
 > このファイルは正本（日本語版）です。
 
 # Maintenance

@@ -50,7 +50,7 @@ jobs:
         run: shasum -a 256 *.zip > checksums.txt
 
       - name: Attest build provenance
-        if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/') && github.event.repository.private == false
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: "dist/*.zip"

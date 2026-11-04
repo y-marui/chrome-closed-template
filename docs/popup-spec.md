@@ -1,3 +1,7 @@
+---
+description: ポップアップの構成・ヘッダ規約など UI 仕様
+---
+
 # Popup Layout Spec
 
 All `chrome-*` extensions share the same popup chrome (header, footer, font and icon scale).

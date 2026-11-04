@@ -1,3 +1,7 @@
+---
+description: ストア審査の却下・差し戻し履歴
+---
+
 # ストア審査履歴
 
 Chrome Web Store / Firefox AMO のいずれかで却下・差し戻しが発生した場合に記録する。
