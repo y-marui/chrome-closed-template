@@ -1,3 +1,7 @@
+---
+description: Firefox AMO 提出用の権限使用理由
+---
+
 # 権限使用理由（審査用・任意）
 
 AMO の審査ノート（Notes to Reviewer）で権限について説明が必要な場合のみ使用する。

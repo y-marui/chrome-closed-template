@@ -1,3 +1,7 @@
+---
+description: Chrome Web Store 提出用の権限使用理由
+---
+
 # 権限使用理由（審査用）
 
 Chrome Web Store デベロッパーダッシュボードの「プライバシーに関する行為」フォームに入力する

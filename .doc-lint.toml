@@ -1,0 +1,7 @@
+# 常時読込のポインタ（@AI_CONTEXT.md を読み込むだけ）と、ストアにそのまま貼る本文は frontmatter 検査から除く
+exempt_frontmatter = [
+  "AGENTS.md",
+  "CLAUDE.md",
+  "GEMINI.md",
+  "docs/store/**/description.md",
+]
