@@ -6,6 +6,8 @@
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
 [![CI](https://github.com/y-marui/chrome-closed-template/actions/workflows/ci.yml/badge.svg)](https://github.com/y-marui/chrome-closed-template/actions/workflows/ci.yml)
 [![Charter Check](https://github.com/y-marui/chrome-closed-template/actions/workflows/dev-charter-check.yml/badge.svg)](https://github.com/y-marui/chrome-closed-template/actions/workflows/dev-charter-check.yml)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/y-marui?style=social)](https://github.com/sponsors/y-marui)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-yellow.svg)](https://www.buymeacoffee.com/y.marui)
 
 A Chrome Extension template for AI-assisted development (Claude Code / GitHub Copilot). Designed for small closed teams (1–3 developers).
 
@@ -162,5 +164,4 @@ This template does not include a hosted policy page; set one up before releasing
 Copyright (c) [YEAR] [AUTHOR]. All Rights Reserved — see [LICENSE](LICENSE) for details.
 
 ---
-
 *This document has a Japanese canonical version [README-jp.md](README-jp.md). Update both in the same commit when editing.*
